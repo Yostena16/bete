@@ -51,6 +51,44 @@
     "problemTitle": "ይህ ለምን ተሠራ",
     "problemBody": "በአዲስ አበባ ቤት የፈለገ ሰው ሁሉ አንድ ዓይነት ታሪክ ይነግርዎታል፦ ስለ አንድ ቤት ደውለው ከሦስት ወር በፊት እንደተከራየ ይሰማሉ። እዚህ ያሉ ድረ ገጾች የሞተ ማስታወቂያ የማንሳት ምክንያት የላቸውም፤ ስለዚህ አያነሱም። ቤቴ የመረጃውን ዕድሜ በካርዱ ላይ በጣም ጎልቶ የሚታይ ነገር ያደርገዋል።"
   },
+  "listing": {
+    "beds": "{count, plural, =0 {ስቱዲዮ} =1 {1 መኝታ} other {# መኝታ}}",
+    "baths": "{count, plural, =1 {1 መታጠቢያ} other {# መታጠቢያ}}",
+    "advance": "{months, plural, =1 {የ1 ወር ቅድሚያ} other {የ# ወር ቅድሚያ}}",
+    "noAdvanceStated": "ቅድሚያ አልተገለጸም",
+    "approx": "≈ {price}",
+    "viewsLabel": "{count, plural, =1 {1 እይታ} other {# እይታ}}",
+    "save": "ይህን ማስታወቂያ አስቀምጥ",
+    "unsave": "ከተቀመጡት አውጣ",
+    "reference": "ቁጥር {reference}",
+    "coverAlt": "{title}፣ {area}",
+    "noPhoto": "ፎቶ የለም"
+  },
+  "propertyType": {
+    "CONDOMINIUM": "ኮንዶሚኒየም",
+    "APARTMENT": "አፓርታማ",
+    "VILLA": "ቪላ",
+    "SERVICE_QUARTER": "ሰርቪስ",
+    "WHOLE_BUILDING": "ሙሉ ሕንጻ",
+    "SHOP": "ሱቅ",
+    "OFFICE": "ቢሮ",
+    "WAREHOUSE": "መጋዘን",
+    "LAND": "ቦታ"
+  },
+  "furnishing": {
+    "FURNISHED": "ሙሉ ዕቃ ያለው",
+    "SEMI_FURNISHED": "ከፊል ዕቃ ያለው",
+    "UNFURNISHED": "ዕቃ የሌለው"
+  },
+  "listerType": {
+    "OWNER": "ባለቤት",
+    "BROKER": "ደላላ",
+    "AGENCY": "ኤጀንሲ"
+  },
+  "amenity": {
+    "generator": "ጀነሬተር",
+    "water-tank": "የውሃ ታንከር"
+  },
   "freshness": {
     "fresh": "{days, plural, =0 {ዛሬ} =1 {ትናንት} other {ከ# ቀን በፊት}} ተረጋግጧል",
     "ageing": "ከ{weeks, plural, =1 {አንድ ሳምንት} other {# ሳምንት}} በፊት ተረጋግጧል",
