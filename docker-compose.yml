@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgis/postgis:17-3.5
+    container_name: bete-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: bete
+      POSTGRES_PASSWORD: bete
+      POSTGRES_DB: bete
+    ports:
+      - "5433:5432"
+    volumes:
+      - bete-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bete -d bete"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  bete-pgdata:
