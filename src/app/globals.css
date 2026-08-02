@@ -1,26 +1,229 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Bete design tokens.
+  Six named colours, justified in docs/design-plan.md. The three freshness
+  states derive from mint / ochre / stone and nothing else. No blue anywhere,
+  and no red outside destructive confirmation.
+*/
+@theme {
+  --color-bete: #0c3a3c;
+  --color-bete-deep: #092c2e;
+  --color-bete-soft: #17514f;
+  --color-ink: #061f20;
+  --color-ink-soft: #3c5150;
+  --color-mint: #4fbfa0;
+  --color-mint-deep: #2f8a71;
+  --color-mint-wash: #ddf1ea;
+  --color-ochre: #e0a32e;
+  --color-ochre-deep: #a4741a;
+  --color-ochre-wash: #faeed6;
+  --color-stone: #b4bfbe;
+  --color-stone-soft: #d5dcdb;
+  --color-stone-wash: #e3e8e7;
+  --color-paper: #eef1ef;
+  --color-surface: #ffffff;
+  --color-danger: #b3261e;
+  --color-danger-wash: #f8e4e2;
+
+  --font-display: var(--font-outfit), var(--font-ethiopic), ui-sans-serif,
+    system-ui, sans-serif;
+  --font-sans: var(--font-plex), var(--font-ethiopic), ui-sans-serif, system-ui,
+    sans-serif;
+
+  --text-display: 3.052rem;
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.035em;
+  --text-h1: 2.441rem;
+  --text-h1--line-height: 1.05;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h2: 1.953rem;
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h3: 1.563rem;
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.02em;
+
+  --shadow-card: 0 1px 2px rgb(6 31 32 / 0.06), 0 4px 12px rgb(6 31 32 / 0.05);
+  --shadow-lift: 0 2px 6px rgb(6 31 32 / 0.08), 0 12px 28px rgb(6 31 32 / 0.1);
+  --shadow-sheet: 0 -8px 32px rgb(6 31 32 / 0.16);
+}
+
+/*
+  shadcn/ui components read these semantic names. Pointing them at the Bete
+  palette means every primitive we pull from the registry arrives on-brand
+  instead of neutral grey.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --radius: 0.625rem;
+
+  --background: #eef1ef;
+  --foreground: #061f20;
+  --card: #ffffff;
+  --card-foreground: #061f20;
+  --popover: #ffffff;
+  --popover-foreground: #061f20;
+  --primary: #0c3a3c;
+  --primary-foreground: #eef1ef;
+  --secondary: #e3e8e7;
+  --secondary-foreground: #0c3a3c;
+  --muted: #e3e8e7;
+  --muted-foreground: #3c5150;
+  --accent: #ddf1ea;
+  --accent-foreground: #0c3a3c;
+  --destructive: #b3261e;
+  --border: #d5dcdb;
+  --input: #b4bfbe;
+  --ring: #0c3a3c;
+  --chart-1: #0c3a3c;
+  --chart-2: #4fbfa0;
+  --chart-3: #e0a32e;
+  --chart-4: #17514f;
+  --chart-5: #b4bfbe;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #061f20;
+  --sidebar-primary: #0c3a3c;
+  --sidebar-primary-foreground: #eef1ef;
+  --sidebar-accent: #ddf1ea;
+  --sidebar-accent-foreground: #0c3a3c;
+  --sidebar-border: #d5dcdb;
+  --sidebar-ring: #0c3a3c;
 }
 
 @theme inline {
+  --font-heading: var(--font-display);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /*
+    Ethiopic glyphs carry more vertical weight than Latin at the same size,
+    so Amharic pages get a looser leading to stop blocks looking cramped.
+  */
+  html[lang="am"] body {
+    line-height: 1.7;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-bete);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-mint);
+    color: var(--color-ink);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Prices are read in columns, so digits must never shift width. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+    max-width: 80rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  /* Hides scrollbars on the horizontal snap rows used at mobile widths. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
