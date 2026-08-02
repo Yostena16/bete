@@ -1,0 +1,73 @@
+{
+  "brand": {
+    "name": "Bete",
+    "tagline": "Homes that are still open",
+    "wordmark": "ቤቴ"
+  },
+  "nav": {
+    "rent": "Rent",
+    "buy": "Buy",
+    "map": "Map",
+    "post": "Post a listing",
+    "saved": "Saved",
+    "dashboard": "Dashboard",
+    "admin": "Admin",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "register": "Create account",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
+    "switchToAmharic": "አማርኛ",
+    "switchToEnglish": "English",
+    "languageLabel": "Change language"
+  },
+  "common": {
+    "loading": "Loading",
+    "search": "Search",
+    "clearAll": "Clear all",
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "seeAll": "See all",
+    "perMonth": "/mo",
+    "perYear": "/yr",
+    "negotiable": "Negotiable",
+    "etb": "ETB",
+    "usd": "USD"
+  },
+  "home": {
+    "headline": "Homes that are still open",
+    "lede": "Every listing here shows the last time a person confirmed it was actually available. Nothing sits on this site quietly rotting.",
+    "explainerTitle": "How the badge works",
+    "explainerLede": "Every listing has a thirty-day life. The lister resets it by confirming the place is still free. Run the clock out and the listing leaves search.",
+    "explainerFresh": "Confirmed in the last week. Call with confidence.",
+    "explainerAgeing": "Confirmed one to three weeks ago. Probably fine, worth asking.",
+    "explainerStale": "Nothing for three weeks or more. Treat it as gone.",
+    "explainerExpired": "Thirty days with no word. Removed from search until the lister comes back.",
+    "problemTitle": "Why this exists",
+    "problemBody": "Ask anyone who has looked for a place in Addis and you get the same story: you call about a house and it went three months ago. Sites here have no reason to remove a dead listing, so they do not. Bete makes the age of the information the most visible thing on the card."
+  },
+  "freshness": {
+    "fresh": "Confirmed {days, plural, =0 {today} =1 {yesterday} other {# days ago}}",
+    "ageing": "Confirmed {weeks, plural, =1 {a week} other {# weeks}} ago",
+    "stale": "Not confirmed recently",
+    "expired": "Expired",
+    "label": "Availability last confirmed",
+    "fresh_short": "Fresh",
+    "ageing_short": "Ageing",
+    "stale_short": "Stale",
+    "dayCounter": "Day {day} of {total}"
+  },
+  "footer": {
+    "builtIn": "Built for Addis Ababa",
+    "explore": "Explore",
+    "forListers": "For listers",
+    "about": "About",
+    "howFreshnessWorks": "How the freshness badge works",
+    "rights": "A portfolio project. Listings are illustrative, not real offers."
+  }
+}
