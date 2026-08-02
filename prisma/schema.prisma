@@ -1,0 +1,262 @@
+// Bete — Addis Ababa property marketplace.
+// Domain values in this file are fixed by the brief: eleven sub-cities, nine
+// property types, and the Ethiopia-specific listing fields (advance months,
+// negotiable price, lister type) that no competing site exposes as filters.
+
+generator client {
+  provider        = "prisma-client"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  extensions = [postgis]
+}
+
+model User {
+  id            String      @id @default(cuid())
+  name          String
+  // +251 format. Phone is the real identity in this market, not email — most
+  // listers have a phone and no inbox they check.
+  phone         String      @unique
+  email         String?     @unique
+  passwordHash  String?
+  role          Role        @default(SEEKER)
+  listerType    ListerType?
+  phoneVerified Boolean     @default(false)
+  avatarUrl     String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  listings      Listing[]
+  savedListings SavedListing[]
+  savedSearches SavedSearch[]
+
+  @@index([role])
+}
+
+model Listing {
+  id            String  @id @default(cuid())
+  // Public-facing reference printed on the listing, so a seeker can quote it
+  // on the phone. Competitors do this and it is genuinely useful.
+  reference     String  @unique
+  userId        String
+
+  listingType   ListingType
+  propertyType  PropertyType
+  titleEn       String
+  titleAm       String?
+  descriptionEn String  @db.Text
+  descriptionAm String? @db.Text
+
+  price           Decimal     @db.Decimal(14, 2)
+  currency        Currency    @default(ETB)
+  priceNegotiable Boolean     @default(false)
+  rentPeriod      RentPeriod?
+  // Months of rent demanded upfront. The single biggest real filter for
+  // renters in Addis, and the reason someone would use this site over a
+  // Telegram channel.
+  advanceMonths   Int?
+
+  bedrooms    Int?
+  bathrooms   Int?
+  areaSqm     Float?
+  // Ethiopians describe buildings as G+1, G+2, G+3 — ground plus N floors.
+  floorsGPlus Int?
+  furnishing  Furnishing?
+
+  areaId      String
+  // Free text landmark, e.g. "behind Edna Mall". This is how addresses
+  // actually work here; there are no reliable street numbers.
+  addressNote String?
+  lat         Float
+  lng         Float
+
+  status          ListingStatus @default(PENDING)
+  rejectionReason String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  // Powers the freshness system. Reset by the lister confirming availability.
+  lastConfirmedAt DateTime      @default(now())
+  expiresAt       DateTime
+  // Single-use-ish token for the one-click "still available" / "already taken"
+  // links in the day-21 reminder email.
+  confirmToken    String        @unique @default(cuid())
+  reminderSentAt  DateTime?
+  views           Int           @default(0)
+  // Counted separately from views: revealing a phone number is real intent.
+  contactReveals  Int           @default(0)
+
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  area      Area             @relation(fields: [areaId], references: [id])
+  images    ListingImage[]
+  amenities ListingAmenity[]
+  savedBy   SavedListing[]
+
+  @@index([listingType, propertyType, status])
+  @@index([areaId])
+  @@index([price])
+  @@index([lastConfirmedAt])
+  @@index([status, lastConfirmedAt])
+  @@index([userId])
+  @@index([lat, lng])
+}
+
+model ListingImage {
+  id        String  @id @default(cuid())
+  listingId String
+  url       String
+  publicId  String
+  order     Int
+  isCover   Boolean @default(false)
+  width     Int?
+  height    Int?
+  blurHash  String?
+
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  @@index([listingId, order])
+}
+
+model Area {
+  id      String  @id @default(cuid())
+  nameEn  String
+  nameAm  String
+  // URL segment for the SEO landing pages, e.g. /rent/bole-medhanialem
+  slug    String  @unique
+  subCity SubCity
+  lat     Float
+  lng     Float
+
+  listings Listing[]
+
+  @@index([subCity])
+}
+
+model Amenity {
+  id     String @id @default(cuid())
+  nameEn String @unique
+  nameAm String
+  // Filter key used in the URL, e.g. ?generator=true
+  slug   String @unique
+  icon   String
+  // Generator and water tank surface on the card itself; everything else
+  // waits for the detail page.
+  isKey  Boolean @default(false)
+  order  Int     @default(0)
+
+  listings ListingAmenity[]
+}
+
+model ListingAmenity {
+  listingId String
+  amenityId String
+
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  amenity Amenity @relation(fields: [amenityId], references: [id], onDelete: Cascade)
+
+  @@id([listingId, amenityId])
+  @@index([amenityId])
+}
+
+model SavedListing {
+  userId    String
+  listingId String
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  @@id([userId, listingId])
+  @@index([listingId])
+}
+
+model SavedSearch {
+  id         String         @id @default(cuid())
+  userId     String
+  name       String
+  queryJson  Json
+  frequency  AlertFrequency @default(DAILY)
+  lastSentAt DateTime?
+  createdAt  DateTime       @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+enum Role {
+  SEEKER
+  LISTER
+  ADMIN
+}
+
+enum ListerType {
+  OWNER
+  BROKER
+  AGENCY
+}
+
+enum ListingType {
+  FOR_RENT
+  FOR_SALE
+}
+
+enum PropertyType {
+  CONDOMINIUM
+  APARTMENT
+  VILLA
+  SERVICE_QUARTER
+  WHOLE_BUILDING
+  SHOP
+  OFFICE
+  WAREHOUSE
+  LAND
+}
+
+enum Currency {
+  ETB
+  USD
+}
+
+enum RentPeriod {
+  MONTHLY
+  ANNUAL
+}
+
+enum Furnishing {
+  FURNISHED
+  SEMI_FURNISHED
+  UNFURNISHED
+}
+
+enum ListingStatus {
+  DRAFT
+  PENDING
+  ACTIVE
+  RENTED
+  SOLD
+  EXPIRED
+  REJECTED
+}
+
+enum SubCity {
+  BOLE
+  YEKA
+  KIRKOS
+  ARADA
+  LIDETA
+  GULLELE
+  ADDIS_KETEMA
+  KOLFE_KERANIO
+  NIFAS_SILK_LAFTO
+  AKAKY_KALITI
+  LEMI_KURA
+}
+
+enum AlertFrequency {
+  INSTANT
+  DAILY
+  WEEKLY
+}
