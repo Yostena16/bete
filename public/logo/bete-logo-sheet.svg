@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560" role="img" aria-label="Bete logo sheet">
+  <rect width="900" height="560" fill="#EEF1EF"/>
+
+  <text x="48" y="56" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.6" fill="#3C5150">THE MARK</text>
+  <g transform="translate(48 76)">
+    <path d="M6 33 L32 9 L58 33" fill="none" stroke="#0C3A3C" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 32 V58" fill="none" stroke="#0C3A3C" stroke-width="6.5"/>
+    <path d="M50 32 V58" fill="none" stroke="#0C3A3C" stroke-width="6.5"/>
+    <circle cx="32" cy="27" r="4.6" fill="#4FBFA0"/>
+    <path d="M25 58 V45 Q25 39 32 39 Q39 39 39 45 V58 Z" fill="#E0A32E"/>
+  </g>
+
+  <text x="180" y="56" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.6" fill="#3C5150">CLEAR SPACE = DOORWAY WIDTH (14 UNITS)</text>
+  <g transform="translate(194 90)">
+    <rect x="-14" y="-14" width="92" height="92" fill="none" stroke="#B4BFBE" stroke-width="1" stroke-dasharray="4 4"/>
+    <path d="M6 33 L32 9 L58 33" fill="none" stroke="#0C3A3C" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 32 V58" fill="none" stroke="#0C3A3C" stroke-width="6.5"/>
+    <path d="M50 32 V58" fill="none" stroke="#0C3A3C" stroke-width="6.5"/>
+    <circle cx="32" cy="27" r="4.6" fill="#4FBFA0"/>
+    <path d="M25 58 V45 Q25 39 32 39 Q39 39 39 45 V58 Z" fill="#E0A32E"/>
+  </g>
+
+  <text x="360" y="56" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.6" fill="#3C5150">LOCKUP</text>
+  <g transform="translate(360 78)">
+    <g transform="scale(0.75)">
+      <path d="M6 33 L32 9 L58 33" fill="none" stroke="#0C3A3C" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M14 32 V58" fill="none" stroke="#0C3A3C" stroke-width="6.5"/>
+      <path d="M50 32 V58" fill="none" stroke="#0C3A3C" stroke-width="6.5"/>
+      <circle cx="32" cy="27" r="4.6" fill="#4FBFA0"/>
+      <path d="M25 58 V45 Q25 39 32 39 Q39 39 39 45 V58 Z" fill="#E0A32E"/>
+    </g>
+    <text x="58" y="34" font-family="Outfit, sans-serif" font-size="34" font-weight="600" letter-spacing="-1.2" fill="#0C3A3C">Bete</text>
+    <text x="152" y="34" font-family="Noto Sans Ethiopic, sans-serif" font-size="30" fill="#3C5150">dt</text>
+    <text x="58" y="54" font-family="Outfit, sans-serif" font-size="12" letter-spacing="0.6" fill="#3C5150">Homes that are still open</text>
+  </g>
+
+  <rect x="48" y="200" width="380" height="140" fill="#0C3A3C"/>
+  <text x="70" y="228" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.6" fill="#B4BFBE">ON DARK  STROKES GO #EEF1EF</text>
+  <g transform="translate(70 244)">
+    <path d="M6 33 L32 9 L58 33" fill="none" stroke="#EEF1EF" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 32 V58" fill="none" stroke="#EEF1EF" stroke-width="6.5"/>
+    <path d="M50 32 V58" fill="none" stroke="#EEF1EF" stroke-width="6.5"/>
+    <circle cx="32" cy="27" r="4.6" fill="#4FBFA0"/>
+    <path d="M25 58 V45 Q25 39 32 39 Q39 39 39 45 V58 Z" fill="#E0A32E"/>
+  </g>
+  <text x="152" y="288" font-family="Outfit, sans-serif" font-size="30" font-weight="600" letter-spacing="-1.1" fill="#EEF1EF">Bete</text>
+
+  <text x="470" y="216" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.6" fill="#3C5150">SIZES  BELOW 20PX DROP THE MINT DOT</text>
+  <g transform="translate(470 232)">
+    <path d="M6 33 L32 9 L58 33" fill="none" stroke="#0C3A3C" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 32 V58" fill="none" stroke="#0C3A3C" stroke-width="6.5"/>
+    <path d="M50 32 V58" fill="none" stroke="#0C3A3C" stroke-width="6.5"/>
+    <circle cx="32" cy="27" r="4.6" fill="#4FBFA0"/>
+    <path d="M25 58 V45 Q25 39 32 39 Q39 39 39 45 V58 Z" fill="#E0A32E"/>
+  </g>
+  <g transform="translate(546 250) scale(0.5)">
+    <path d="M6 33 L32 9 L58 33" fill="none" stroke="#0C3A3C" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 32 V58" fill="none" stroke="#0C3A3C" stroke-width="6.5"/>
+    <path d="M50 32 V58" fill="none" stroke="#0C3A3C" stroke-width="6.5"/>
+    <circle cx="32" cy="27" r="4.6" fill="#4FBFA0"/>
+    <path d="M25 58 V45 Q25 39 32 39 Q39 39 39 45 V58 Z" fill="#E0A32E"/>
+  </g>
+  <g transform="translate(590 258) scale(0.28)">
+    <path d="M6 33 L32 9 L58 33" fill="none" stroke="#0C3A3C" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 32 V58" fill="none" stroke="#0C3A3C" stroke-width="6.5"/>
+    <path d="M50 32 V58" fill="none" stroke="#0C3A3C" stroke-width="6.5"/>
+    <path d="M25 58 V45 Q25 39 32 39 Q39 39 39 45 V58 Z" fill="#E0A32E"/>
+  </g>
+
+  <text x="48" y="392" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.6" fill="#3C5150">PALETTE</text>
+  <g transform="translate(48 404)">
+    <rect x="0" y="0" width="120" height="60" fill="#0C3A3C"/>
+    <text x="8" y="78" font-family="Outfit, sans-serif" font-size="12" fill="#061F20">bete</text>
+    <text x="8" y="94" font-family="Outfit, sans-serif" font-size="11" fill="#3C5150">#0C3A3C</text>
+
+    <rect x="132" y="0" width="120" height="60" fill="#061F20"/>
+    <text x="140" y="78" font-family="Outfit, sans-serif" font-size="12" fill="#061F20">ink</text>
+    <text x="140" y="94" font-family="Outfit, sans-serif" font-size="11" fill="#3C5150">#061F20</text>
+
+    <rect x="264" y="0" width="120" height="60" fill="#4FBFA0"/>
+    <text x="272" y="78" font-family="Outfit, sans-serif" font-size="12" fill="#061F20">mint</text>
+    <text x="272" y="94" font-family="Outfit, sans-serif" font-size="11" fill="#3C5150">#4FBFA0</text>
+
+    <rect x="396" y="0" width="120" height="60" fill="#E0A32E"/>
+    <text x="404" y="78" font-family="Outfit, sans-serif" font-size="12" fill="#061F20">ochre</text>
+    <text x="404" y="94" font-family="Outfit, sans-serif" font-size="11" fill="#3C5150">#E0A32E</text>
+
+    <rect x="528" y="0" width="120" height="60" fill="#B4BFBE"/>
+    <text x="536" y="78" font-family="Outfit, sans-serif" font-size="12" fill="#061F20">stone</text>
+    <text x="536" y="94" font-family="Outfit, sans-serif" font-size="11" fill="#3C5150">#B4BFBE</text>
+
+    <rect x="660" y="0" width="120" height="60" fill="#EEF1EF" stroke="#B4BFBE"/>
+    <text x="668" y="78" font-family="Outfit, sans-serif" font-size="12" fill="#061F20">paper</text>
+    <text x="668" y="94" font-family="Outfit, sans-serif" font-size="11" fill="#3C5150">#EEF1EF</text>
+  </g>
+
+  <text x="48" y="536" font-family="Outfit, sans-serif" font-size="12" fill="#3C5150">Never close the silhouette. Never pull the eaves flush. Never place the mark inside a location pin.</text>
+</svg>
