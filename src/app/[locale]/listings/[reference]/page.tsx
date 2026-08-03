@@ -19,6 +19,8 @@ import { ContactCard } from "@/components/listings/detail/contact-card";
 import { SpecTable } from "@/components/listings/detail/spec-table";
 import { AmenityGrid } from "@/components/listings/detail/amenity-grid";
 import { ListingMapLazy } from "@/components/map/listing-map-lazy";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 
 type PageProps = {
   params: Promise<{ locale: string; reference: string }>;
@@ -75,7 +77,10 @@ export default async function ListingDetailPage({ params }: PageProps) {
   const isTaken = listing.status === "RENTED" || listing.status === "SOLD";
 
   return (
-    <div className="mx-auto w-full max-w-[1200px] px-4 py-6 sm:px-6 lg:px-8">
+    <>
+      <SiteHeader />
+      <main>
+        <div className="mx-auto w-full max-w-[1200px] px-4 py-6 sm:px-6 lg:px-8">
       <Link
         href={listing.listingType === "FOR_RENT" ? "/rent" : "/buy"}
         className="mb-4 inline-block text-sm text-bete underline underline-offset-4 hover:text-bete-soft"
@@ -217,6 +222,9 @@ export default async function ListingDetailPage({ params }: PageProps) {
           <ResultsGrid listings={similar} />
         </section>
       ) : null}
-    </div>
+        </div>
+      </main>
+      <SiteFooter />
+    </>
   );
 }
