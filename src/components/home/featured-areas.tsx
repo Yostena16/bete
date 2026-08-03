@@ -35,7 +35,7 @@ export function FeaturedAreas({ areas }: FeaturedAreasProps) {
               <p className="font-display text-lg font-semibold text-ink">
                 {isAmharic ? area.nameAm : area.nameEn}
               </p>
-              <p className="mt-2 text-sm text-mint-deep">
+              <p className="mt-2 text-sm text-ink-soft">
                 {t("areaOpen", { count: area.openCount })}
               </p>
             </Link>
