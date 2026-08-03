@@ -18,6 +18,7 @@ import { Gallery } from "@/components/listings/detail/gallery";
 import { ContactCard } from "@/components/listings/detail/contact-card";
 import { SpecTable } from "@/components/listings/detail/spec-table";
 import { AmenityGrid } from "@/components/listings/detail/amenity-grid";
+import { ListingMapLazy } from "@/components/map/listing-map-lazy";
 
 type PageProps = {
   params: Promise<{ locale: string; reference: string }>;
@@ -156,6 +157,16 @@ export default async function ListingDetailPage({ params }: PageProps) {
               />
             </section>
           ) : null}
+
+          <section>
+            <h2 className="mb-2 font-display text-lg font-semibold text-ink">
+              {t("location")}
+            </h2>
+            <p className="mb-3 text-sm text-ink-soft">{t("locationNote")}</p>
+            <div className="listing-map">
+              <ListingMapLazy lat={listing.lat} lng={listing.lng} />
+            </div>
+          </section>
         </div>
 
         <aside className="mt-6 flex flex-col gap-4 lg:mt-0">
