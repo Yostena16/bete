@@ -10,6 +10,8 @@ import { SearchBox } from "./search-box";
 import { ResultsGrid } from "./results-grid";
 import { EmptyResults } from "./empty-results";
 import { Pagination } from "./pagination";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 import type { ListingType } from "@/generated/prisma/enums";
 
 /**
@@ -36,7 +38,10 @@ export async function SearchPage({
   const from = (result.page - 1) * PAGE_SIZE;
 
   return (
-    <div className="mx-auto w-full max-w-[1400px] px-4 py-6 sm:px-6 lg:px-8">
+    <>
+      <SiteHeader />
+      <main>
+        <div className="mx-auto w-full max-w-[1400px] px-4 py-6 sm:px-6 lg:px-8">
       <header className="mb-6">
         <h1 className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
           {isRent ? t("rentTitle") : t("buyTitle")}
@@ -87,6 +92,9 @@ export async function SearchPage({
           )}
         </div>
       </div>
-    </div>
+        </div>
+      </main>
+      <SiteFooter />
+    </>
   );
 }
