@@ -1,8 +1,17 @@
-import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { FreshnessExplainer } from "@/components/freshness/freshness-explainer";
+import { HeroSearch } from "@/components/home/hero-search";
+import { FeaturedAreas } from "@/components/home/featured-areas";
+import { RecentConfirmed } from "@/components/home/recent-confirmed";
+import { getAreas } from "@/lib/listings/areas";
+import {
+  countConfirmedThisWeek,
+  getFeaturedAreas,
+  getRecentlyConfirmed,
+} from "@/lib/listings/home";
 
 export default async function HomePage({
   params,
@@ -11,11 +20,14 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <Home />;
-}
 
-function Home() {
-  const t = useTranslations("home");
+  const t = await getTranslations("home");
+  const [areas, confirmedCount, featured, recent] = await Promise.all([
+    getAreas(),
+    countConfirmedThisWeek(),
+    getFeaturedAreas(),
+    getRecentlyConfirmed(4),
+  ]);
 
   return (
     <>
@@ -24,6 +36,7 @@ function Home() {
         {/*
           No stock house photo above the fold. The masthead is typographic and
           states the freshness promise in the first sentence a visitor reads.
+          The search bar is the only bright object on the teal field.
         */}
         <section className="bg-bete text-paper">
           <div className="container-page py-16 md:py-24">
@@ -31,8 +44,25 @@ function Home() {
               {t("headline")}
             </h1>
             <p className="mt-6 max-w-xl text-lg text-stone">{t("lede")}</p>
+
+            <HeroSearch
+              areas={areas}
+              className="mt-10 max-w-3xl"
+            />
+
+            <p className="mt-5 flex items-center gap-2 text-sm text-stone">
+              <span
+                className="inline-block size-2 shrink-0 rounded-full bg-mint"
+                aria-hidden="true"
+              />
+              {t("confirmedThisWeek", { count: confirmedCount })}
+            </p>
           </div>
         </section>
+
+        <FeaturedAreas areas={featured} />
+
+        <RecentConfirmed listings={recent} />
 
         <section className="container-page py-14 md:py-20">
           <h2 className="text-h3 text-bete md:text-h2">{t("explainerTitle")}</h2>
