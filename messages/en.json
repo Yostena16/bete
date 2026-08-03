@@ -136,6 +136,16 @@
     "emptyAction": "Clear all filters",
     "emptyExpiredNote": "Listings that go thirty days without confirmation leave search, so this page shows fewer homes than a site that never removes anything. That is deliberate."
   },
+  "map": {
+    "title": "Map of homes in Addis Ababa",
+    "lede": "The same filters as the list. Pins show the advertised price in birr.",
+    "rent": "Rent",
+    "buy": "Buy",
+    "listView": "List view",
+    "count": "{count, plural, =0 {No pins} =1 {1 pin} other {# pins}}",
+    "openListing": "Open listing",
+    "clusterLabel": "{count} homes"
+  },
   "filters": {
     "title": "Filters",
     "openLabel": "Filters{count, plural, =0 {} other { (#)}}",
