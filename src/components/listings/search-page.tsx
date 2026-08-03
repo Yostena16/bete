@@ -53,7 +53,7 @@ export async function SearchPage({
 
       <div className="lg:grid lg:grid-cols-[280px_1fr] lg:gap-8">
         <aside className="hidden lg:block">
-          <div className="sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto pr-2">
+          <div className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto pr-2">
             <FilterPanel areas={areas} listingType={listingType} />
           </div>
         </aside>
