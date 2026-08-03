@@ -234,6 +234,53 @@
       height: 20rem;
     }
   }
+
+  /* Full-bleed search map under the chrome. */
+  .search-map {
+    height: min(70vh, 40rem);
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-stone-soft);
+  }
+
+  .price-pin {
+    background: transparent;
+    border: none;
+  }
+
+  .price-pin__label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    background: #0c3a3c;
+    color: #eef1ef;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+    box-shadow: 0 1px 3px rgb(6 31 32 / 0.28);
+    white-space: nowrap;
+  }
+
+  .marker-cluster-small,
+  .marker-cluster-medium,
+  .marker-cluster-large {
+    background: rgb(12 58 60 / 0.18);
+  }
+
+  .marker-cluster-small div,
+  .marker-cluster-medium div,
+  .marker-cluster-large div {
+    background: #0c3a3c;
+    color: #eef1ef;
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
