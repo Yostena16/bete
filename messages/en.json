@@ -374,7 +374,11 @@
     "unauthenticated": "Sign in again to submit.",
     "unknownArea": "That area is not on the list.",
     "rentPeriodRequired": "Say whether rent is monthly or yearly.",
-    "invalidPhotoUrl": "That photo URL is not valid."
+    "invalidPhotoUrl": "That photo URL is not valid.",
+    "uploadFailed": "Upload failed. Try again or paste a URL.",
+    "cloudinaryUnset": "Cloudinary is not configured here — paste image URLs instead.",
+    "notImage": "That file is not an image.",
+    "tooLarge": "That image is still too large after compression."
   },
   "auth": {
     "loginTitle": "Sign in",
