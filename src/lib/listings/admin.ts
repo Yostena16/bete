@@ -2,7 +2,7 @@ import { prisma } from "@/lib/db";
 import { LISTING_LIFESPAN_DAYS, MS_PER_DAY } from "@/lib/freshness";
 
 export async function getPendingListings() {
-  return prisma.listing.findMany({
+  const rows = await prisma.listing.findMany({
     where: { status: "PENDING" },
     orderBy: { createdAt: "asc" },
     select: {
@@ -28,6 +28,10 @@ export async function getPendingListings() {
       },
     },
   });
+  return rows.map((listing) => ({
+    ...listing,
+    price: Number(listing.price),
+  }));
 }
 
 export type PendingListing = Awaited<

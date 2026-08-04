@@ -3,7 +3,7 @@ import { listingCardSelect } from "./query";
 import { LISTING_LIFESPAN_DAYS, MS_PER_DAY } from "@/lib/freshness";
 
 export async function getListerListings(userId: string) {
-  return prisma.listing.findMany({
+  const rows = await prisma.listing.findMany({
     where: { userId },
     select: {
       ...listingCardSelect,
@@ -15,6 +15,10 @@ export async function getListerListings(userId: string) {
     },
     orderBy: [{ updatedAt: "desc" }],
   });
+  return rows.map((listing) => ({
+    ...listing,
+    price: Number(listing.price),
+  }));
 }
 
 export type ListerListing = Awaited<

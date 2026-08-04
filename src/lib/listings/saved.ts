@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/db";
-import { listingCardSelect } from "./query";
+import { listingCardSelect, serializeListingCard } from "./query";
 
 export async function getSavedListingIds(userId: string): Promise<Set<string>> {
   const rows = await prisma.savedListing.findMany({
@@ -18,5 +18,5 @@ export async function getSavedListings(userId: string) {
     },
   });
 
-  return rows.map((row) => row.listing);
+  return rows.map((row) => serializeListingCard(row.listing));
 }

@@ -1,5 +1,9 @@
 import { prisma } from "@/lib/db";
-import { listingCardSelect, type ListingCardData } from "./query";
+import {
+  listingCardSelect,
+  serializeListingCard,
+  type ListingCardData,
+} from "./query";
 
 /** Areas the landing page highlights — the ones people actually look first. */
 export const FEATURED_AREA_SLUGS = [
@@ -75,7 +79,7 @@ export async function getRecentlyConfirmed(
   const since = new Date();
   since.setUTCDate(since.getUTCDate() - 3);
 
-  return prisma.listing.findMany({
+  const rows = await prisma.listing.findMany({
     where: {
       status: "ACTIVE",
       lastConfirmedAt: { gte: since },
@@ -84,4 +88,5 @@ export async function getRecentlyConfirmed(
     orderBy: { lastConfirmedAt: "desc" },
     take: limit,
   });
+  return rows.map(serializeListingCard);
 }
