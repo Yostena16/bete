@@ -1,11 +1,16 @@
 import { getTranslations } from "next-intl/server";
 import { getAreas } from "@/lib/listings/areas";
 import { searchListings } from "@/lib/listings/query";
-import { parseSearchParams, PAGE_SIZE } from "@/lib/listings/search-params";
+import {
+  countActiveFilters,
+  parseSearchParams,
+  PAGE_SIZE,
+} from "@/lib/listings/search-params";
 import { FilterPanel } from "./filters/filter-panel";
 import { FilterSheet } from "./filters/filter-sheet";
 import { ActiveFilters } from "./filters/active-filters";
 import { SortSelect } from "./filters/sort-select";
+import { SaveSearchControl } from "./save-search-control";
 import { SearchBox } from "./search-box";
 import { ResultsGrid } from "./results-grid";
 import { EmptyResults } from "./empty-results";
@@ -43,6 +48,7 @@ export async function SearchPage({
   const isRent = listingType === "FOR_RENT";
   const from = (result.page - 1) * PAGE_SIZE;
   const signedIn = Boolean(session?.user);
+  const hasFilters = countActiveFilters(params) > 0;
 
   return (
     <>
@@ -79,7 +85,14 @@ export async function SearchPage({
                   {t("count", { count: result.total })}
                 </p>
               </div>
-              <SortSelect />
+              <div className="flex flex-wrap items-center gap-2">
+                <SaveSearchControl
+                  listingType={listingType}
+                  signedIn={signedIn}
+                  hasFilters={hasFilters}
+                />
+                <SortSelect />
+              </div>
             </div>
             <ActiveFilters areas={areas} />
           </div>

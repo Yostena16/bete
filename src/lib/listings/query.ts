@@ -182,6 +182,24 @@ export type SearchResult = {
   pageCount: number;
 };
 
+/** New ACTIVE matches since `since`, for saved-search alert digests. */
+export async function countListingsCreatedSince(
+  params: SearchParams,
+  listingType: ListingType,
+  since: Date,
+): Promise<number> {
+  const where = buildWhere(params, listingType);
+  const [{ count }] = await prisma.$queryRaw<[{ count: bigint }]>(
+    Prisma.sql`
+      SELECT COUNT(*)::bigint AS count
+      ${FROM}
+      ${where}
+      AND l."createdAt" > ${since}
+    `,
+  );
+  return Number(count);
+}
+
 export async function searchListings(
   params: SearchParams,
   listingType?: ListingType,

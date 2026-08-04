@@ -75,9 +75,10 @@ Password for every seeded user: `bete-demo-2026`
 
 ```bash
 curl -H "Authorization: Bearer local-dev-cron-secret" http://localhost:3000/api/cron/freshness
+curl -H "Authorization: Bearer local-dev-cron-secret" http://localhost:3000/api/cron/saved-searches
 ```
 
-Without `RESEND_API_KEY`, reminder emails print to the server console.
+Without `RESEND_API_KEY`, reminder and saved-search emails print to the server console.
 
 ---
 
@@ -105,6 +106,6 @@ Without `RESEND_API_KEY`, reminder emails print to the server console.
 
 ## What is in / not yet polished
 
-Shipped through Phase 6: browse, detail, map, auth, post wizard, dashboard confirm, freshness cron, saved hearts, admin moderation.
+Shipped through Phase 7: browse, detail, map, auth, post wizard (Cloudinary upload), dashboard confirm, freshness cron, saved hearts, saved-search alerts, admin moderation, SEO landings.
 
-Still open for Phase 7 polish: Cloudinary upload in the post wizard (URLs work today), saved-search email alerts, SEO area landing routes, Lighthouse pass on a deployed URL.
+Still open for polish: Lighthouse pass on a deployed URL.
