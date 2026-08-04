@@ -21,6 +21,8 @@ import { AmenityGrid } from "@/components/listings/detail/amenity-grid";
 import { ListingMapLazy } from "@/components/map/listing-map-lazy";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { auth } from "@/auth";
+import { getSavedListingIds } from "@/lib/listings/saved";
 
 type PageProps = {
   params: Promise<{ locale: string; reference: string }>;
@@ -60,7 +62,14 @@ export default async function ListingDetailPage({ params }: PageProps) {
 
   const t = await getTranslations("detail");
   const format = await getFormatter();
-  const similar = await getSimilarListings(listing);
+  const session = await auth();
+  const [similar, savedIds] = await Promise.all([
+    getSimilarListings(listing),
+    session?.user?.id
+      ? getSavedListingIds(session.user.id)
+      : Promise.resolve(new Set<string>()),
+  ]);
+  const signedIn = Boolean(session?.user);
 
   // Not awaited: the counter must never delay or fail the page.
   void recordView(listing.id);
@@ -117,7 +126,12 @@ export default async function ListingDetailPage({ params }: PageProps) {
                   {listing.addressNote ? ` — ${listing.addressNote}` : null}
                 </p>
               </div>
-              <SaveButton listingId={listing.id} className="shrink-0" />
+              <SaveButton
+                listingId={listing.id}
+                initialSaved={savedIds.has(listing.id)}
+                signedIn={signedIn}
+                className="shrink-0"
+              />
             </div>
 
             <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-ink-soft">
@@ -219,7 +233,11 @@ export default async function ListingDetailPage({ params }: PageProps) {
             {t("similar")}
           </h2>
           <p className="mb-4 text-sm text-ink-soft">{t("similarNote")}</p>
-          <ResultsGrid listings={similar} />
+          <ResultsGrid
+            listings={similar}
+            savedIds={savedIds}
+            signedIn={signedIn}
+          />
         </section>
       ) : null}
         </div>
