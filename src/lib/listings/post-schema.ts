@@ -54,6 +54,7 @@ export type PostDraft = z.infer<typeof postDraftSchema>;
 export const emptyDraft = (): Partial<PostDraft> => ({
   listingType: "FOR_RENT",
   currency: "ETB",
+  rentPeriod: "MONTHLY",
   priceNegotiable: false,
   amenitySlugs: [],
   photoUrls: [],
