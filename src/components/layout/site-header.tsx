@@ -1,11 +1,12 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/brand/logo";
 import { LanguageSwitcher } from "./language-switcher";
 import { MobileNav } from "./mobile-nav";
+import { AuthNav } from "@/components/auth/auth-nav";
 
-export function SiteHeader() {
-  const t = useTranslations("nav");
+export async function SiteHeader() {
+  const t = await getTranslations("nav");
 
   const links = [
     { href: "/rent", label: t("rent") },
@@ -48,12 +49,7 @@ export function SiteHeader() {
           >
             {t("post")}
           </Link>
-          <Link
-            href="/login"
-            className="hidden rounded-md border border-paper/25 px-3.5 py-2 text-sm font-medium text-paper transition-colors hover:bg-white/10 md:inline-block"
-          >
-            {t("signIn")}
-          </Link>
+          <AuthNav />
           <MobileNav />
         </div>
       </div>
