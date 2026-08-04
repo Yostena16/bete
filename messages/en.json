@@ -232,6 +232,15 @@
     "stale_short": "Stale",
     "dayCounter": "Day {day} of {total}"
   },
+  "errors": {
+    "notFoundTitle": "That page is not here",
+    "notFoundBody": "The link may be old, or the listing may have expired after thirty days without confirmation.",
+    "notFoundAction": "Go home",
+    "errorTitle": "Something broke",
+    "errorBody": "Try again. If it keeps happening, come back in a few minutes.",
+    "errorRetry": "Try again",
+    "errorHome": "Go home"
+  },
   "admin": {
     "title": "Moderation",
     "lede": "Approve what is real. Reject what is not, with a reason the lister can act on.",

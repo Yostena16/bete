@@ -232,6 +232,15 @@
     "stale_short": "ያረጀ",
     "dayCounter": "ከ{total} ቀን {day}ኛው ቀን"
   },
+  "errors": {
+    "notFoundTitle": "ያ ገጽ የለም",
+    "notFoundBody": "አገናኙ ያረጀ ሊሆን ይችላል፤ ወይም ማስታወቂያው ሠላሳ ቀን ያለ ማረጋገጫ አልፎበት ሊሆን ይችላል።",
+    "notFoundAction": "ወደ መነሻ",
+    "errorTitle": "አንድ ነገር ተሰብሯል",
+    "errorBody": "እንደገና ይሞክሩ። ከቀጠለ ከጥቂት ደቂቃ በኋላ ይመለሱ።",
+    "errorRetry": "እንደገና ሞክር",
+    "errorHome": "ወደ መነሻ"
+  },
   "admin": {
     "title": "አስተዳደር",
     "lede": "እውነተኛውን ያጽድቁ። ያልሆነውን በምክንያት ውድቅ ያድርጉ።",
