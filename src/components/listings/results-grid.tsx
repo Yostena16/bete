@@ -2,9 +2,8 @@ import { ListingCard } from "./listing-card";
 import type { ListingCardData } from "@/lib/listings/query";
 
 /**
- * Four columns on a wide desktop, one on a phone. The first four cards are
- * marked priority so the largest contentful paint is a real photo rather than a
- * lazily-loaded one.
+ * Four columns on a wide desktop, one on a phone. Only the first card is
+ * priority so mobile LCP is not competing with three images below the fold.
  */
 export function ResultsGrid({
   listings,
@@ -21,7 +20,7 @@ export function ResultsGrid({
         <ListingCard
           key={listing.id}
           listing={listing}
-          priority={index < 4}
+          priority={index < 1}
           saved={savedIds?.has(listing.id) ?? false}
           signedIn={signedIn}
         />
