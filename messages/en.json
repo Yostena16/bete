@@ -232,6 +232,20 @@
     "stale_short": "Stale",
     "dayCounter": "Day {day} of {total}"
   },
+  "confirm": {
+    "title": "Confirm availability",
+    "availableTitle": "Marked as still available",
+    "availableBody": "\"{title}\" ({reference}) has a fresh thirty-day life and is back in search.",
+    "takenTitle": "Marked as taken",
+    "takenBody": "\"{title}\" ({reference}) is out of search. Thank you for keeping the list honest.",
+    "errorTitle": "That link did not work",
+    "toDashboard": "Open your dashboard",
+    "errors": {
+      "notFound": "This confirmation link is unknown or already replaced.",
+      "notActive": "That listing is not in a state that can be updated from this link.",
+      "invalidAction": "The link is missing whether the place is still free or already taken."
+    }
+  },
   "dashboard": {
     "title": "Your listings",
     "lede": "Confirm still available resets the thirty-day life. That button is the product.",

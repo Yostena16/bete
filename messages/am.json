@@ -232,6 +232,20 @@
     "stale_short": "ያረጀ",
     "dayCounter": "ከ{total} ቀን {day}ኛው ቀን"
   },
+  "confirm": {
+    "title": "ክፍትነት አረጋግጥ",
+    "availableTitle": "አሁንም ክፍት ነው ተብሏል",
+    "availableBody": "«{title}» ({reference}) አዲስ የሠላሳ ቀን ዕድሜ አግኝቶ ወደ ፍለጋ ተመልሷል።",
+    "takenTitle": "ተይዟል ተብሏል",
+    "takenBody": "«{title}» ({reference}) ከፍለጋ ወጥቷል። ዝርዝሩን ታማኝ ስላደረጉ እናመሰግናለን።",
+    "errorTitle": "ያ አገናኝ አልሠራም",
+    "toDashboard": "ዳሽቦርድዎን ይክፈቱ",
+    "errors": {
+      "notFound": "ይህ የማረጋገጫ አገናኝ አይታወቅም ወይም ተተክቷል።",
+      "notActive": "ይህ ማስታወቂያ በዚህ አገናኝ ሊዘምን በሚችል ሁኔታ አይደለም።",
+      "invalidAction": "ቤቱ አሁንም ክፍት ወይስ ተይዟል የሚለው በአገናኙ የለም።"
+    }
+  },
   "dashboard": {
     "title": "የእርስዎ ማስታወቂያዎች",
     "lede": "«አሁንም ክፍት ነው» ማረጋገጥ የሠላሳ ቀን ዕድሜን ያድሳል። ያ አዝራር ምርቱ ነው።",
