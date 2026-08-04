@@ -23,6 +23,8 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { auth } from "@/auth";
 import { getSavedListingIds } from "@/lib/listings/saved";
+import { ListingJsonLd } from "@/components/seo/listing-json-ld";
+import { absoluteUrl } from "@/lib/site";
 
 type PageProps = {
   params: Promise<{ locale: string; reference: string }>;
@@ -47,10 +49,25 @@ export async function generateMetadata({
   return {
     title: `${title} — ${areaName}`,
     description: description.slice(0, 160),
+    alternates: {
+      canonical: absoluteUrl(`/${locale}/listings/${reference}`),
+      languages: {
+        en: absoluteUrl(`/en/listings/${reference}`),
+        am: absoluteUrl(`/am/listings/${reference}`),
+      },
+    },
     openGraph: {
+      type: "article",
       title: `${title} — ${areaName}`,
       description: description.slice(0, 200),
+      url: absoluteUrl(`/${locale}/listings/${reference}`),
       images: listing.images[0] ? [{ url: listing.images[0].url }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} — ${areaName}`,
+      description: description.slice(0, 160),
+      images: listing.images[0] ? [listing.images[0].url] : undefined,
     },
   };
 }
@@ -87,6 +104,7 @@ export default async function ListingDetailPage({ params }: PageProps) {
 
   return (
     <>
+      <ListingJsonLd listing={listing} locale={locale} />
       <SiteHeader />
       <main>
         <div className="mx-auto w-full max-w-[1200px] px-4 py-6 sm:px-6 lg:px-8">
