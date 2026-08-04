@@ -25,6 +25,14 @@ export async function AuthNav() {
 
   return (
     <div className="hidden items-center gap-2 md:flex">
+      {session.user.role === "ADMIN" ? (
+        <Link
+          href="/admin"
+          className="rounded-md px-3 py-2 text-sm font-medium text-paper/85 transition-colors hover:bg-white/10 hover:text-paper"
+        >
+          {tNav("admin")}
+        </Link>
+      ) : null}
       <Link
         href="/dashboard"
         className="rounded-md px-3 py-2 text-sm font-medium text-paper/85 transition-colors hover:bg-white/10 hover:text-paper"

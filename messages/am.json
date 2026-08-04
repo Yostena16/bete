@@ -232,6 +232,36 @@
     "stale_short": "ያረጀ",
     "dayCounter": "ከ{total} ቀን {day}ኛው ቀን"
   },
+  "admin": {
+    "title": "አስተዳደር",
+    "lede": "እውነተኛውን ያጽድቁ። ያልሆነውን በምክንያት ውድቅ ያድርጉ።",
+    "analyticsTitle": "በአንድ እይታ",
+    "queueTitle": "የመጠባበቂያ ወረፋ",
+    "queueCount": "{count, plural, =0 {ምንም የለም} =1 {1 ማስታወቂያ ይጠብቃል} other {# ማስታወቂያዎች ይጠብቃሉ}}",
+    "queueEmpty": "ወረፋው ባዶ ነው።",
+    "approve": "አጽድቅ",
+    "reject": "ውድቅ አድርግ",
+    "rejectReason": "የውድቅ ምክንያት",
+    "rejectPlaceholder": "እንዲያስተካክሉ የሚያስችል ምክንያት ይጻፉ።",
+    "listedBy": "ያስተዋወቀው {name} · {phone}",
+    "noPhotos": "ፎቶ የለም",
+    "stats": {
+      "pending": "በመጠባበቅ",
+      "active": "ቀጥታ",
+      "confirmedWeek": "በዚህ ሳምንት የተረጋገጡ",
+      "expired": "ጊዜያቸው ያለፈ",
+      "rejected": "ውድቅ የሆኑ",
+      "taken": "ተከራይተው / ተሽጠው",
+      "users": "ተጠቃሚዎች"
+    },
+    "errors": {
+      "forbidden": "የአስተዳደር መብት የለዎትም።",
+      "notFound": "ያ ማስታወቂያ የለም።",
+      "notPending": "ያ ማስታወቂያ ከመጠባበቅ ወጥቷል።",
+      "reasonShort": "ግልጽ ምክንያት ይጻፉ (ቢያንስ 8 ቁምፊ)።",
+      "failed": "ማስታወቂያውን ማዘመን አልተቻለም።"
+    }
+  },
   "saved": {
     "title": "የተቀመጡ ቤቶች",
     "lede": "ለመመለስ ምልክት ያደረጓቸው ቦታዎች። ልብ ምልክቱ ከገቡ በኋላ ይመሳሰላል።",

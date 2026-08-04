@@ -232,6 +232,36 @@
     "stale_short": "Stale",
     "dayCounter": "Day {day} of {total}"
   },
+  "admin": {
+    "title": "Moderation",
+    "lede": "Approve what is real. Reject what is not, with a reason the lister can act on.",
+    "analyticsTitle": "At a glance",
+    "queueTitle": "Pending queue",
+    "queueCount": "{count, plural, =0 {Nothing waiting} =1 {1 listing waiting} other {# listings waiting}}",
+    "queueEmpty": "The queue is clear.",
+    "approve": "Approve",
+    "reject": "Reject",
+    "rejectReason": "Rejection reason",
+    "rejectPlaceholder": "Say what to fix so they can resubmit.",
+    "listedBy": "Listed by {name} · {phone}",
+    "noPhotos": "No photos",
+    "stats": {
+      "pending": "Pending",
+      "active": "Live",
+      "confirmedWeek": "Confirmed this week",
+      "expired": "Expired",
+      "rejected": "Rejected",
+      "taken": "Rented / sold",
+      "users": "Users"
+    },
+    "errors": {
+      "forbidden": "You do not have moderation access.",
+      "notFound": "That listing is gone.",
+      "notPending": "That listing is no longer pending.",
+      "reasonShort": "Give a clearer reason (at least 8 characters).",
+      "failed": "Could not update the listing."
+    }
+  },
   "saved": {
     "title": "Saved homes",
     "lede": "Places you marked to come back to. Hearts sync once you are signed in.",
