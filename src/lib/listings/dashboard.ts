@@ -1,7 +1,6 @@
 import { prisma } from "@/lib/db";
 import { listingCardSelect } from "./query";
-
-const LIFESPAN_DAYS = 30;
+import { LISTING_LIFESPAN_DAYS, MS_PER_DAY } from "@/lib/freshness";
 
 export async function getListerListings(userId: string) {
   return prisma.listing.findMany({
@@ -40,7 +39,9 @@ export async function confirmListingAvailable(
   }
 
   const now = new Date();
-  const expiresAt = new Date(now.getTime() + LIFESPAN_DAYS * 86_400_000);
+  const expiresAt = new Date(
+    now.getTime() + LISTING_LIFESPAN_DAYS * MS_PER_DAY,
+  );
 
   await prisma.listing.update({
     where: { id: listing.id },
