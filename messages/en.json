@@ -276,11 +276,42 @@
     }
   },
   "saved": {
-    "title": "Saved homes",
-    "lede": "Places you marked to come back to. Hearts sync once you are signed in.",
+    "title": "Saved",
+    "lede": "Homes you hearted, and searches that email you when something new matches.",
+    "homesTitle": "Saved homes",
+    "homesLede": "Places you marked to come back to.",
     "emptyTitle": "Nothing saved yet",
     "emptyBody": "Tap the heart on a listing card. It will show up here so you can compare without losing the thread.",
     "emptyAction": "Browse rentals"
+  },
+  "savedSearch": {
+    "sectionTitle": "Saved searches",
+    "sectionLede": "We email new matches when your account has an inbox on file. Alerts log to the server console when Resend is unset.",
+    "save": "Save this search",
+    "confirm": "Save alert",
+    "saving": "Saving…",
+    "cancel": "Cancel",
+    "savedToast": "Search saved — manage alerts under Saved.",
+    "nameLabel": "Name",
+    "namePlaceholder": "e.g. Bole 2-bed under 40k",
+    "frequencyLabel": "Alert frequency",
+    "frequency": {
+      "INSTANT": "As soon as we check (daily job)",
+      "DAILY": "Daily digest",
+      "WEEKLY": "Weekly digest"
+    },
+    "intent": {
+      "FOR_RENT": "Rent",
+      "FOR_SALE": "Buy"
+    },
+    "alertsHint": "Email when new listings match",
+    "delete": "Remove",
+    "emptyTitle": "No saved searches",
+    "emptyBody": "On rent or buy results, narrow the filters and tap “Save this search”.",
+    "emptyAction": "Browse rentals",
+    "errors": {
+      "failed": "Could not save that search. Try again."
+    }
   },
   "confirm": {
     "title": "Confirm availability",
