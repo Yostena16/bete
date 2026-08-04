@@ -14,6 +14,7 @@ import {
   type PostStep,
 } from "@/lib/listings/post-schema";
 import { submitListingAction } from "@/app/actions/post-listing";
+import { PhotoStep } from "@/components/post/photo-step";
 import { cn } from "@/lib/utils";
 
 const DRAFT_KEY = "bete:post-draft:v1";
@@ -56,7 +57,6 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
   const isAmharic = locale === "am";
   const [step, setStep] = useState<PostStep>("type");
   const [draft, setDraft] = useState<Partial<PostDraft>>(emptyDraft);
-  const [photoInput, setPhotoInput] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
 
@@ -95,7 +95,7 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
       case "amenities":
         return true;
       case "photos":
-        return (draft.photoUrls?.length ?? 0) >= 1;
+        return (draft.photos?.length ?? 0) >= 1;
       case "price":
         return Boolean(draft.price && draft.price > 0);
       case "review":
@@ -115,23 +115,6 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
   function back() {
     setError(null);
     if (stepIndex > 0) setStep(POST_STEPS[stepIndex - 1]);
-  }
-
-  function addPhoto() {
-    const url = photoInput.trim();
-    if (!url) return;
-    try {
-      // Validate URL shape before storing.
-      new URL(url);
-    } catch {
-      setError("invalidPhotoUrl");
-      return;
-    }
-    const existing = draft.photoUrls ?? [];
-    if (existing.length >= 12) return;
-    patch({ photoUrls: [...existing, url] });
-    setPhotoInput("");
-    setError(null);
   }
 
   function submit() {
@@ -422,43 +405,11 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
         ) : null}
 
         {step === "photos" ? (
-          <div className="space-y-4">
-            <p className="text-sm text-ink-soft">{t("photosHint")}</p>
-            <div className="flex gap-2">
-              <Input
-                value={photoInput}
-                onChange={(event) => setPhotoInput(event.target.value)}
-                placeholder="https://…"
-                className="h-11"
-              />
-              <Button type="button" onClick={addPhoto} className="h-11">
-                {t("addPhoto")}
-              </Button>
-            </div>
-            <ul className="space-y-2">
-              {(draft.photoUrls ?? []).map((url, index) => (
-                <li
-                  key={`${url}-${index}`}
-                  className="flex items-center justify-between gap-3 rounded-lg border border-stone-soft px-3 py-2 text-sm"
-                >
-                  <span className="truncate">{url}</span>
-                  <button
-                    type="button"
-                    className="shrink-0 text-danger"
-                    onClick={() =>
-                      patch({
-                        photoUrls: (draft.photoUrls ?? []).filter(
-                          (_, i) => i !== index,
-                        ),
-                      })
-                    }
-                  >
-                    {t("removePhoto")}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <PhotoStep
+            photos={draft.photos ?? []}
+            onChange={(photos) => patch({ photos })}
+            onError={setError}
+          />
         ) : null}
 
         {step === "price" ? (
@@ -563,7 +514,7 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
             </p>
             <p>
               <span className="text-ink-soft">{t("reviewPhotos")}: </span>
-              {draft.photoUrls?.length ?? 0}
+              {draft.photos?.length ?? 0}
             </p>
             <p className="text-ink-soft">{t("reviewNote")}</p>
           </div>
@@ -577,6 +528,10 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
               "unknownArea",
               "rentPeriodRequired",
               "invalidPhotoUrl",
+              "uploadFailed",
+              "cloudinaryUnset",
+              "notImage",
+              "tooLarge",
               "submitFailed",
             ].includes(error)
               ? t(error as "invalidDraft")

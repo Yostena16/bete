@@ -87,9 +87,9 @@ export async function submitListingAction(
         lastConfirmedAt: now,
         expiresAt,
         images: {
-          create: draft.photoUrls.map((url, order) => ({
-            url,
-            publicId: `manual/${reference}/${order}`,
+          create: draft.photos.map((photo, order) => ({
+            url: photo.url,
+            publicId: photo.publicId,
             order,
             isCover: order === 0,
           })),

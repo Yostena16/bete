@@ -348,9 +348,12 @@
     "floors": "ፎቆች (G+N)",
     "furnishing": "የዕቃ ሁኔታ",
     "optional": "አማራጭ",
-    "photosHint": "አሁን የምስል URL ይለጥፉ። የመጀመሪያው ሽፋን ይሆናል።",
-    "addPhoto": "አክል",
+    "photosHint": "ፎቶዎችን ይስቀሉ (በአሳሹ ውስጥ ይጨመቃሉ) ወይም URL ይለጥፉ። የመጀመሪያው ሽፋን ነው — በቀስቶች ይቀይሩ።",
+    "uploadPhotos": "ፎቶዎችን ስቀል",
+    "uploading": "እየተሰቀለ ነው…",
+    "addPhoto": "URL አክል",
     "removePhoto": "አስወግድ",
+    "coverPhoto": "የሽፋን ፎቶ",
     "price": "ዋጋ",
     "currency": "ምንዛሬ",
     "negotiable": "ዋጋው ይደራደራል",
@@ -371,7 +374,11 @@
     "unauthenticated": "ለማስገባት እንደገና ይግቡ።",
     "unknownArea": "ያ አካባቢ በዝርዝሩ የለም።",
     "rentPeriodRequired": "ኪራዩ ወርሃዊ ወይም ዓመታዊ መሆኑን ይግለጹ።",
-    "invalidPhotoUrl": "የፎቶው URL ልክ አይደለም።"
+    "invalidPhotoUrl": "የፎቶው URL ልክ አይደለም።",
+    "uploadFailed": "መስቀል አልተሳካም። እንደገና ይሞክሩ ወይም URL ይለጥፉ።",
+    "cloudinaryUnset": "Cloudinary እዚህ አልተዋቀረም — የምስል URL ይለጥፉ።",
+    "notImage": "ያ ፋይል ምስል አይደለም።",
+    "tooLarge": "ከመጨመቅ በኋላም ምስሉ በጣም ትልቅ ነው።"
   },
   "auth": {
     "loginTitle": "ግባ",
