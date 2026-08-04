@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 import { fontVariables } from "@/lib/fonts";
 import { routing } from "@/i18n/routing";
@@ -58,10 +58,14 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
 
   setRequestLocale(locale);
+  const t = await getTranslations("common");
 
   return (
     <html lang={locale} className={fontVariables}>
       <body className="min-h-dvh bg-paper text-ink antialiased">
+        <a href="#main-content" className="skip-link">
+          {t("skipToContent")}
+        </a>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>

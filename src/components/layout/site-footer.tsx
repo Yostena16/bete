@@ -11,7 +11,7 @@ export function SiteFooter() {
       <div className="container-page grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-3">
           <Logo tone="dark" size={30} />
-          <p className="max-w-56 text-sm text-stone">{t("builtIn")}</p>
+          <p className="max-w-56 text-sm text-paper/75">{t("builtIn")}</p>
         </div>
 
         <nav aria-label={t("explore")} className="space-y-3 text-sm">
@@ -20,17 +20,26 @@ export function SiteFooter() {
           </h2>
           <ul className="space-y-2">
             <li>
-              <Link href="/rent" className="text-paper/80 hover:text-paper">
+              <Link
+                href="/rent"
+                className="focus-ring-on-dark text-paper/80 hover:text-paper"
+              >
                 {nav("rent")}
               </Link>
             </li>
             <li>
-              <Link href="/buy" className="text-paper/80 hover:text-paper">
+              <Link
+                href="/buy"
+                className="focus-ring-on-dark text-paper/80 hover:text-paper"
+              >
                 {nav("buy")}
               </Link>
             </li>
             <li>
-              <Link href="/map" className="text-paper/80 hover:text-paper">
+              <Link
+                href="/map"
+                className="focus-ring-on-dark text-paper/80 hover:text-paper"
+              >
                 {nav("map")}
               </Link>
             </li>
@@ -43,12 +52,18 @@ export function SiteFooter() {
           </h2>
           <ul className="space-y-2">
             <li>
-              <Link href="/post" className="text-paper/80 hover:text-paper">
+              <Link
+                href="/post"
+                className="focus-ring-on-dark text-paper/80 hover:text-paper"
+              >
                 {nav("post")}
               </Link>
             </li>
             <li>
-              <Link href="/dashboard" className="text-paper/80 hover:text-paper">
+              <Link
+                href="/dashboard"
+                className="focus-ring-on-dark text-paper/80 hover:text-paper"
+              >
                 {nav("dashboard")}
               </Link>
             </li>
@@ -61,7 +76,10 @@ export function SiteFooter() {
           </h2>
           <ul className="space-y-2">
             <li>
-              <Link href="/freshness" className="text-paper/80 hover:text-paper">
+              <Link
+                href="/freshness"
+                className="focus-ring-on-dark text-paper/80 hover:text-paper"
+              >
                 {t("howFreshnessWorks")}
               </Link>
             </li>
@@ -71,7 +89,7 @@ export function SiteFooter() {
 
       <div className="border-t border-white/10">
         <div className="container-page py-5">
-          <p className="text-xs text-stone">{t("rights")}</p>
+          <p className="text-xs text-paper/70">{t("rights")}</p>
         </div>
       </div>
     </footer>

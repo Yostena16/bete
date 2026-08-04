@@ -35,7 +35,7 @@ export default async function DashboardPage({
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <div className="container-page py-10 md:py-14">
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>

@@ -56,7 +56,7 @@ export default async function MapPage({ params, searchParams }: PageProps) {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <div className="mx-auto w-full max-w-[1400px] px-4 py-6 sm:px-6 lg:px-8">
           <header className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>

@@ -108,7 +108,7 @@ export function SaveSearchControl({
           onChange={(event) => setName(event.target.value)}
           placeholder={t("namePlaceholder")}
           maxLength={80}
-          className="mt-1 w-full rounded-lg border border-stone bg-paper px-3 py-2 text-sm text-ink outline-none focus:border-bete"
+          className="mt-1 w-full rounded-lg border border-stone bg-paper px-3 py-2 text-sm text-ink focus:border-bete focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
         />
       </label>
       <label className="block text-xs font-medium text-ink-soft">
@@ -120,7 +120,7 @@ export function SaveSearchControl({
               event.target.value as (typeof ALERT_FREQUENCIES)[number],
             )
           }
-          className="mt-1 w-full rounded-lg border border-stone bg-paper px-3 py-2 text-sm text-ink outline-none focus:border-bete"
+          className="mt-1 w-full rounded-lg border border-stone bg-paper px-3 py-2 text-sm text-ink focus:border-bete focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
         >
           {ALERT_FREQUENCIES.map((value) => (
             <option key={value} value={value}>

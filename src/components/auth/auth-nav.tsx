@@ -16,7 +16,7 @@ export async function AuthNav() {
     return (
       <Link
         href="/login"
-        className="hidden rounded-md border border-paper/25 px-3.5 py-2 text-sm font-medium text-paper transition-colors hover:bg-white/10 md:inline-block"
+        className="focus-ring-on-dark hidden rounded-md border border-paper/25 px-3.5 py-2 text-sm font-medium text-paper transition-colors hover:bg-white/10 md:inline-block"
       >
         {tNav("signIn")}
       </Link>
@@ -28,21 +28,21 @@ export async function AuthNav() {
       {session.user.role === "ADMIN" ? (
         <Link
           href="/admin"
-          className="rounded-md px-3 py-2 text-sm font-medium text-paper/85 transition-colors hover:bg-white/10 hover:text-paper"
+          className="focus-ring-on-dark rounded-md px-3 py-2 text-sm font-medium text-paper/85 transition-colors hover:bg-white/10 hover:text-paper"
         >
           {tNav("admin")}
         </Link>
       ) : null}
       <Link
         href="/dashboard"
-        className="rounded-md px-3 py-2 text-sm font-medium text-paper/85 transition-colors hover:bg-white/10 hover:text-paper"
+        className="focus-ring-on-dark rounded-md px-3 py-2 text-sm font-medium text-paper/85 transition-colors hover:bg-white/10 hover:text-paper"
       >
         {tNav("dashboard")}
       </Link>
       <form action={signOutAction}>
         <button
           type="submit"
-          className="rounded-md border border-paper/25 px-3.5 py-2 text-sm font-medium text-paper transition-colors hover:bg-white/10"
+          className="focus-ring-on-dark rounded-md border border-paper/25 px-3.5 py-2 text-sm font-medium text-paper transition-colors hover:bg-white/10"
         >
           {t("signOut")}
         </button>

@@ -10,6 +10,8 @@ import {
 } from "@/lib/map/addis";
 import { betePinIcon } from "./bete-pin";
 
+import "leaflet/dist/leaflet.css";
+
 type PinDropMapProps = {
   lat: number;
   lng: number;

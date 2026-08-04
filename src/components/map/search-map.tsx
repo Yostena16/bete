@@ -15,6 +15,7 @@ import { formatPrice } from "@/lib/format";
 import { pricePinIcon } from "./price-pin";
 import type { ListingCardData } from "@/lib/listings/query";
 
+import "leaflet/dist/leaflet.css";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 

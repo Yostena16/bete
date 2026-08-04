@@ -108,7 +108,7 @@ export function ListingCard({
           */}
           <Link
             href={`/listings/${listing.reference}`}
-            className="after:absolute after:inset-0 after:content-[''] focus:outline-none"
+            className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
           >
             <span className="line-clamp-2">{title}</span>
           </Link>

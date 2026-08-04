@@ -106,7 +106,7 @@ export default async function ListingDetailPage({ params }: PageProps) {
     <>
       <ListingJsonLd listing={listing} locale={locale} />
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <div className="mx-auto w-full max-w-[1200px] px-4 py-6 sm:px-6 lg:px-8">
       <Link
         href={listing.listingType === "FOR_RENT" ? "/rent" : "/buy"}

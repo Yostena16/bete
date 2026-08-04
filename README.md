@@ -106,6 +106,6 @@ Without `RESEND_API_KEY`, reminder and saved-search emails print to the server c
 
 ## What is in / not yet polished
 
-Shipped through Phase 7: browse, detail, map, auth, post wizard (Cloudinary upload), dashboard confirm, freshness cron, saved hearts, saved-search alerts, admin moderation, SEO landings.
+Shipped through Phase 7: browse, detail, map, auth, post wizard (Cloudinary upload), dashboard confirm, freshness cron, saved hearts, saved-search alerts, admin moderation, SEO landings, and a11y/perf polish aimed at Lighthouse (skip link, focus rings, contrast, scoped map CSS).
 
-Still open for polish: Lighthouse pass on a deployed URL.
+A full Lighthouse ≥ 90 score still wants a production deploy to verify.

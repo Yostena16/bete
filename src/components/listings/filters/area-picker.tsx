@@ -68,7 +68,7 @@ export function AreaPicker({
           onChange={(event) => setQuery(event.target.value)}
           placeholder={t("areaSearchPlaceholder")}
           aria-label={t("areaSearchPlaceholder")}
-          className="w-full rounded-lg border border-stone-soft bg-surface py-2 pl-9 pr-3 text-sm text-ink placeholder:text-stone focus:border-bete focus:outline-none"
+          className="w-full rounded-lg border border-stone-soft bg-surface py-2 pl-9 pr-3 text-sm text-ink placeholder:text-stone focus:border-bete focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
         />
       </div>
 

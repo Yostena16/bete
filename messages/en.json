@@ -23,6 +23,7 @@
   },
   "common": {
     "loading": "Loading",
+    "skipToContent": "Skip to content",
     "search": "Search",
     "clearAll": "Clear all",
     "apply": "Apply",

@@ -39,7 +39,7 @@ export function MapIntentToggle({
           type="button"
           onClick={() => setIntent(value)}
           className={cn(
-            "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
+            "rounded-md px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete",
             intent === value
               ? "bg-bete text-paper"
               : "text-ink-soft hover:text-ink",

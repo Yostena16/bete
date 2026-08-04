@@ -30,7 +30,7 @@ export default async function RegisterPage({ params }: PageProps) {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <div className="mx-auto w-full max-w-md px-4 py-12 sm:px-6">
           <h1 className="font-display text-2xl font-semibold tracking-tight text-ink">
             {t("registerTitle")}

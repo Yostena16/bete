@@ -43,7 +43,7 @@ export default async function SavedPage({ params }: PageProps) {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <div className="container-page py-10 md:py-14">
           <h1 className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
             {t("title")}

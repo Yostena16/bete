@@ -58,7 +58,7 @@ export function DebouncedNumberInput({
         onChange={(event) => setDraft(event.target.value)}
         className={cn(
           "w-full rounded-lg border border-stone-soft bg-surface px-3 py-2 text-sm text-ink",
-          "placeholder:text-stone focus:border-bete focus:outline-none",
+          "placeholder:text-stone focus:border-bete focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete",
         )}
       />
     </label>
