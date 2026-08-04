@@ -12,3 +12,10 @@ export const getAreas = cache(async () =>
     orderBy: { nameEn: "asc" },
   }),
 );
+
+export const getAreaBySlug = cache(async (slug: string) =>
+  prisma.area.findUnique({
+    where: { slug },
+    select: { slug: true, nameEn: true, nameAm: true, subCity: true },
+  }),
+);

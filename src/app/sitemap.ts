@@ -19,6 +19,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       })),
   );
 
+  const areas = await prisma.area.findMany({
+    select: { slug: true },
+    orderBy: { nameEn: "asc" },
+  });
+
+  const areaEntries: MetadataRoute.Sitemap = areas.flatMap((area) =>
+    routing.locales.map((locale) => ({
+      url: `${base}/${locale}/rent/${area.slug}`,
+      lastModified: now,
+      changeFrequency: "daily" as const,
+      priority: 0.75,
+    })),
+  );
+
   const listings = await prisma.listing.findMany({
     where: { status: "ACTIVE" },
     select: { reference: true, updatedAt: true },
@@ -35,5 +49,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   );
 
-  return [...staticEntries, ...listingEntries];
+  return [...staticEntries, ...areaEntries, ...listingEntries];
 }
