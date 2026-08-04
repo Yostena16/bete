@@ -41,7 +41,15 @@ export const postDraftSchema = z.object({
     .enum(["FURNISHED", "SEMI_FURNISHED", "UNFURNISHED"])
     .optional(),
   amenitySlugs: z.array(z.string()).default([]),
-  photoUrls: z.array(z.string().url()).min(1).max(12),
+  photos: z
+    .array(
+      z.object({
+        url: z.string().url(),
+        publicId: z.string().min(1),
+      }),
+    )
+    .min(1)
+    .max(12),
   price: z.number().positive().max(5_000_000_000),
   currency: z.enum(["ETB", "USD"]),
   priceNegotiable: z.boolean().default(false),
@@ -50,6 +58,7 @@ export const postDraftSchema = z.object({
 });
 
 export type PostDraft = z.infer<typeof postDraftSchema>;
+export type PostPhoto = PostDraft["photos"][number];
 
 export const emptyDraft = (): Partial<PostDraft> => ({
   listingType: "FOR_RENT",
@@ -57,7 +66,7 @@ export const emptyDraft = (): Partial<PostDraft> => ({
   rentPeriod: "MONTHLY",
   priceNegotiable: false,
   amenitySlugs: [],
-  photoUrls: [],
+  photos: [],
   lat: 9.03,
   lng: 38.74,
 });
