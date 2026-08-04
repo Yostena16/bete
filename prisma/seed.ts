@@ -84,16 +84,20 @@ async function seedAmenities() {
 }
 
 async function seedUsers() {
+  // Same password for every demo account so you can sign in as any seed user.
+  const { hashPassword, DEMO_PASSWORD } = await import("../src/lib/auth/password");
+  const passwordHash = await hashPassword(DEMO_PASSWORD);
+
   for (const user of USERS) {
     const { key, ...data } = user;
     await prisma.user.upsert({
       where: { phone: data.phone },
-      update: data,
-      create: data,
+      update: { ...data, passwordHash },
+      create: { ...data, passwordHash },
     });
     void key;
   }
-  console.log(`Seeded ${USERS.length} users`);
+  console.log(`Seeded ${USERS.length} users (password: ${DEMO_PASSWORD})`);
 }
 
 async function seedListings() {
