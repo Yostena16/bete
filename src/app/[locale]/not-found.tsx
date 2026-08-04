@@ -9,7 +9,7 @@ export default async function LocaleNotFound() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <div className="mx-auto flex max-w-lg flex-col items-center gap-3 px-4 py-24 text-center">
           <p className="font-display text-sm font-semibold tracking-wide text-ochre">
             404

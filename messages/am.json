@@ -23,6 +23,7 @@
   },
   "common": {
     "loading": "በመጫን ላይ",
+    "skipToContent": "ወደ ይዘት ዝለል",
     "search": "ፈልግ",
     "clearAll": "ሁሉንም አጽዳ",
     "apply": "ተግብር",

@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "leaflet/dist/leaflet.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -181,6 +180,32 @@
     border-radius: 2px;
   }
 
+  /*
+    First Tab stop. Visually hidden until focused so keyboard users can jump
+    past the sticky header without painting a permanent control on every page.
+  */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 100;
+    transform: translateY(-200%);
+    border-radius: 0.5rem;
+    background: var(--color-paper);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-bete);
+    box-shadow: var(--shadow-lift);
+    transition: transform 0.15s ease;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+    outline: 2px solid var(--color-mint);
+    outline-offset: 2px;
+  }
+
   ::selection {
     background-color: var(--color-mint);
     color: var(--color-ink);
@@ -192,6 +217,15 @@
   .tabular {
     font-variant-numeric: tabular-nums;
     font-feature-settings: "tnum" 1;
+  }
+
+  /*
+    Global :focus-visible uses bete teal, which disappears on the teal header
+    and footer. Paper outline keeps the ring readable on dark chrome.
+  */
+  .focus-ring-on-dark:focus-visible {
+    outline: 2px solid var(--color-paper);
+    outline-offset: 2px;
   }
 
   .container-page {

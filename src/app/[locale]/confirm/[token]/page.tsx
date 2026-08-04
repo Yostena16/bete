@@ -30,7 +30,7 @@ export default async function ConfirmTokenPage({
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <div className="mx-auto w-full max-w-lg px-4 py-16 sm:px-6">
           {result.ok ? (
             <>

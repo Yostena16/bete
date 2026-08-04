@@ -32,7 +32,7 @@ export default async function HomePage({
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         {/*
           No stock house photo above the fold. The masthead is typographic and
           states the freshness promise in the first sentence a visitor reads.
@@ -43,14 +43,14 @@ export default async function HomePage({
             <h1 className="max-w-4xl text-h1 text-paper md:text-display">
               {t("headline")}
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-stone">{t("lede")}</p>
+            <p className="mt-6 max-w-xl text-lg text-paper/80">{t("lede")}</p>
 
             <HeroSearch
               areas={areas}
               className="mt-10 max-w-3xl"
             />
 
-            <p className="mt-5 flex items-center gap-2 text-sm text-stone">
+            <p className="mt-5 flex items-center gap-2 text-sm text-paper/75">
               <span
                 className="inline-block size-2 shrink-0 rounded-full bg-mint"
                 aria-hidden="true"

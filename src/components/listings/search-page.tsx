@@ -53,7 +53,7 @@ export async function SearchPage({
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <div className="mx-auto w-full max-w-[1400px] px-4 py-6 sm:px-6 lg:px-8">
       <header className="mb-6">
         <h1 className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
