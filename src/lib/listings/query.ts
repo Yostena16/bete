@@ -171,9 +171,21 @@ export const listingCardSelect = {
   },
 } satisfies Prisma.ListingSelect;
 
-export type ListingCardData = Prisma.ListingGetPayload<{
+type ListingCardRow = Prisma.ListingGetPayload<{
   select: typeof listingCardSelect;
 }>;
+
+/**
+ * Prisma returns `price` as Decimal, which cannot cross the RSC → client
+ * boundary. Cards, map pins and dashboard rows all need a plain number.
+ */
+export type ListingCardData = Omit<ListingCardRow, "price"> & {
+  price: number;
+};
+
+export function serializeListingCard(listing: ListingCardRow): ListingCardData {
+  return { ...listing, price: Number(listing.price) };
+}
 
 export type SearchResult = {
   listings: ListingCardData[];
@@ -226,7 +238,9 @@ export async function searchListings(
     where: { id: { in: ids } },
     select: listingCardSelect,
   });
-  const byId = new Map(unordered.map((listing) => [listing.id, listing]));
+  const byId = new Map(
+    unordered.map((listing) => [listing.id, serializeListingCard(listing)]),
+  );
 
   return {
     listings: ids.map((id) => byId.get(id)!),
@@ -254,6 +268,8 @@ export async function searchListingsForMap(
     where: { id: { in: ids } },
     select: listingCardSelect,
   });
-  const byId = new Map(unordered.map((listing) => [listing.id, listing]));
+  const byId = new Map(
+    unordered.map((listing) => [listing.id, serializeListingCard(listing)]),
+  );
   return ids.map((id) => byId.get(id)!);
 }

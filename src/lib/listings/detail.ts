@@ -1,7 +1,11 @@
 import { cache } from "react";
 import { prisma } from "@/lib/db";
 import { Prisma } from "@/generated/prisma/client";
-import { listingCardSelect, type ListingCardData } from "./query";
+import {
+  listingCardSelect,
+  serializeListingCard,
+  type ListingCardData,
+} from "./query";
 
 export const listingDetailSelect = {
   id: true,
@@ -56,20 +60,30 @@ export const listingDetailSelect = {
   },
 } satisfies Prisma.ListingSelect;
 
-export type ListingDetail = Prisma.ListingGetPayload<{
+type ListingDetailRow = Prisma.ListingGetPayload<{
   select: typeof listingDetailSelect;
 }>;
+
+export type ListingDetail = Omit<ListingDetailRow, "price"> & {
+  price: number;
+};
+
+function serializeListingDetail(listing: ListingDetailRow): ListingDetail {
+  return { ...listing, price: Number(listing.price) };
+}
 
 /**
  * Memoised because the page reads it twice: once in generateMetadata and once
  * in the component. Without the cache that is two round trips per request.
  */
 export const getListingByReference = cache(
-  async (reference: string): Promise<ListingDetail | null> =>
-    prisma.listing.findFirst({
+  async (reference: string): Promise<ListingDetail | null> => {
+    const listing = await prisma.listing.findFirst({
       where: { reference, status: { in: ["ACTIVE", "RENTED", "SOLD"] } },
       select: listingDetailSelect,
-    }),
+    });
+    return listing ? serializeListingDetail(listing) : null;
+  },
 );
 
 /**
@@ -120,6 +134,8 @@ export async function getSimilarListings(
     where: { id: { in: ids } },
     select: listingCardSelect,
   });
-  const byId = new Map(unordered.map((item) => [item.id, item]));
+  const byId = new Map(
+    unordered.map((item) => [item.id, serializeListingCard(item)]),
+  );
   return ids.map((id) => byId.get(id)!);
 }
