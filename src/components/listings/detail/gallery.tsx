@@ -77,7 +77,7 @@ export function Gallery({ photos, alt }: { photos: Photo[]; alt: string }) {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-ink/80 px-3 py-1.5 text-xs font-medium text-paper backdrop-blur transition-colors hover:bg-ink"
+            className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-ink/80 px-3 py-1.5 text-xs font-medium text-paper backdrop-blur transition-colors hover:bg-ink focus-ring-on-dark"
           >
             <Expand className="size-3.5" aria-hidden="true" />
             {t("openGallery", { count: photos.length })}
@@ -97,7 +97,7 @@ export function Gallery({ photos, alt }: { photos: Photo[]; alt: string }) {
                   })}
                   aria-current={position === index}
                   className={cn(
-                    "relative block size-16 overflow-hidden rounded-lg border-2 transition-colors sm:size-20",
+                    "relative block size-16 overflow-hidden rounded-lg border-2 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete sm:size-20",
                     position === index
                       ? "border-bete"
                       : "border-transparent opacity-70 hover:opacity-100",
@@ -133,7 +133,7 @@ export function Gallery({ photos, alt }: { photos: Photo[]; alt: string }) {
               autoFocus
               onClick={() => setOpen(false)}
               aria-label={t("closeGallery")}
-              className="grid size-9 place-items-center rounded-full bg-paper/10 transition-colors hover:bg-paper/20"
+              className="focus-ring-on-dark grid size-9 place-items-center rounded-full bg-paper/10 transition-colors hover:bg-paper/20"
             >
               <X className="size-5" aria-hidden="true" />
             </button>
@@ -191,8 +191,8 @@ function GalleryArrow({
         "absolute top-1/2 grid size-9 -translate-y-1/2 place-items-center rounded-full transition-colors",
         side === "left" ? "left-3" : "right-3",
         dark
-          ? "bg-paper/10 text-paper hover:bg-paper/20"
-          : "bg-surface/90 text-ink shadow-sm backdrop-blur hover:bg-surface",
+          ? "focus-ring-on-dark bg-paper/10 text-paper hover:bg-paper/20"
+          : "bg-surface/90 text-ink shadow-sm backdrop-blur hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete",
       )}
     >
       <Icon className="size-5" aria-hidden="true" />

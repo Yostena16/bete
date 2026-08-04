@@ -38,7 +38,7 @@ export function LanguageSwitcher({ tone = "dark" }: { tone?: "light" | "dark" })
       className={cn(
         "rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors",
         tone === "dark"
-          ? "text-paper/80 hover:bg-white/10 hover:text-paper"
+          ? "focus-ring-on-dark text-paper/80 hover:bg-white/10 hover:text-paper"
           : "text-ink-soft hover:bg-stone-wash hover:text-bete",
       )}
     >

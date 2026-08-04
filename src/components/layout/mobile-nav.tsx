@@ -30,7 +30,7 @@ export function MobileNav() {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
         aria-label={t("menu")}
-        className="inline-flex size-10 items-center justify-center rounded-md text-paper transition-colors hover:bg-white/10 md:hidden"
+        className="focus-ring-on-dark inline-flex size-10 items-center justify-center rounded-md text-paper transition-colors hover:bg-white/10 md:hidden"
       >
         <Menu className="size-5" aria-hidden="true" />
       </SheetTrigger>
