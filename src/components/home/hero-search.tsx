@@ -70,7 +70,7 @@ export function HeroSearch({ areas, className }: HeroSearchProps) {
         id="hero-intent"
         value={intent}
         onChange={(event) => setIntent(event.target.value as "rent" | "buy")}
-        className="h-12 rounded-lg border border-stone-soft bg-paper px-3 text-sm font-medium text-ink"
+        className="h-12 rounded-lg border border-stone-soft bg-paper px-3 text-sm font-medium text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
       >
         <option value="rent">{t("searchRent")}</option>
         <option value="buy">{t("searchBuy")}</option>
@@ -83,7 +83,7 @@ export function HeroSearch({ areas, className }: HeroSearchProps) {
         id="hero-area"
         value={area}
         onChange={(event) => setArea(event.target.value)}
-        className="h-12 rounded-lg border border-stone-soft bg-paper px-3 text-sm text-ink"
+        className="h-12 rounded-lg border border-stone-soft bg-paper px-3 text-sm text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
       >
         <option value="">{t("searchArea")}</option>
         {sortedAreas.map((item) => (
@@ -105,12 +105,12 @@ export function HeroSearch({ areas, className }: HeroSearchProps) {
         placeholder={t("searchMaxPrice")}
         value={maxPrice}
         onChange={(event) => setMaxPrice(event.target.value)}
-        className="h-12 rounded-lg border border-stone-soft bg-paper px-3 text-sm tabular-nums text-ink placeholder:text-ink-soft"
+        className="h-12 rounded-lg border border-stone-soft bg-paper px-3 text-sm tabular-nums text-ink placeholder:text-ink-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
       />
 
       <button
         type="submit"
-        className="h-12 rounded-lg bg-ochre px-5 text-sm font-semibold text-ink transition-colors hover:bg-ochre-deep hover:text-paper"
+        className="h-12 rounded-lg bg-ochre px-5 text-sm font-semibold text-ink transition-colors hover:bg-ochre-deep hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
       >
         {t("searchSubmit")}
       </button>

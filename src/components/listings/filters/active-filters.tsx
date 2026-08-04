@@ -137,7 +137,7 @@ export function ActiveFilters({ areas }: { areas: AreaOption[] }) {
             type="button"
             onClick={() => apply(chip.patch)}
             aria-label={t("filters.clearOne", { label: chip.label })}
-            className="flex items-center gap-1 rounded-full border border-stone-soft bg-surface py-1 pl-3 pr-2 text-sm text-ink-soft transition-colors hover:border-stone hover:text-ink"
+            className="flex items-center gap-1 rounded-full border border-stone-soft bg-surface py-1 pl-3 pr-2 text-sm text-ink-soft transition-colors hover:border-stone hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
           >
             {chip.label}
             <X className="size-3.5" aria-hidden="true" />
@@ -149,7 +149,7 @@ export function ActiveFilters({ areas }: { areas: AreaOption[] }) {
           <button
             type="button"
             onClick={clearAll}
-            className="px-1 text-sm text-bete underline underline-offset-4 hover:text-bete-soft"
+            className="px-1 text-sm text-bete underline underline-offset-4 hover:text-bete-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
           >
             {t("filters.clearAll")}
           </button>

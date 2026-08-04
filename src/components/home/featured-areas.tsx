@@ -30,7 +30,7 @@ export function FeaturedAreas({ areas }: FeaturedAreasProps) {
           >
             <Link
               href={`/rent?area=${area.slug}`}
-              className="block rounded-xl border border-stone-soft bg-surface px-5 py-6 transition-shadow hover:shadow-card"
+              className="block rounded-xl border border-stone-soft bg-surface px-5 py-6 transition-shadow hover:shadow-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
             >
               <p className="font-display text-lg font-semibold text-ink">
                 {isAmharic ? area.nameAm : area.nameEn}

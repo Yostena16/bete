@@ -53,7 +53,7 @@ export function SearchBox({ className }: { className?: string }) {
         onChange={(event) => setDraft(event.target.value)}
         placeholder={t("searchPlaceholder")}
         aria-label={t("searchLabel")}
-        className="w-full rounded-lg border border-stone-soft bg-surface py-2.5 pl-9 pr-3 text-sm text-ink placeholder:text-stone focus:border-bete focus:outline-none"
+        className="w-full rounded-lg border border-stone-soft bg-surface py-2.5 pl-9 pr-3 text-sm text-ink placeholder:text-stone focus:border-bete focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
       />
     </form>
   );

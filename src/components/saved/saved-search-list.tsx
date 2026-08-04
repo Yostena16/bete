@@ -68,7 +68,7 @@ export function SavedSearchList({ searches }: { searches: SavedSearchRow[] }) {
                   await updateSavedSearchFrequencyAction(search.id, value);
                 });
               }}
-              className="rounded-lg border border-stone bg-paper px-2 py-1.5 text-sm text-ink outline-none focus:border-bete"
+              className="rounded-lg border border-stone bg-paper px-2 py-1.5 text-sm text-ink focus:border-bete focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bete"
             >
               {ALERT_FREQUENCIES.map((value) => (
                 <option key={value} value={value}>
