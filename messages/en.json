@@ -232,6 +232,27 @@
     "stale_short": "Stale",
     "dayCounter": "Day {day} of {total}"
   },
+  "dashboard": {
+    "title": "Your listings",
+    "lede": "Confirm still available resets the thirty-day life. That button is the product.",
+    "emptyTitle": "No listings yet",
+    "emptyBody": "Post your first place. It will wait in moderation, then show up here with views and the confirm button.",
+    "emptyAction": "Post a listing",
+    "posted": "Submitted {reference}. It is waiting in moderation.",
+    "confirmAvailable": "Confirm still available",
+    "markTaken": "Already taken",
+    "views": "{count, plural, =1 {1 view} other {# views}}",
+    "reveals": "{count, plural, =1 {1 phone reveal} other {# phone reveals}}",
+    "status": {
+      "DRAFT": "Draft",
+      "PENDING": "In moderation",
+      "ACTIVE": "Live",
+      "REJECTED": "Rejected",
+      "EXPIRED": "Expired",
+      "RENTED": "Rented",
+      "SOLD": "Sold"
+    }
+  },
   "post": {
     "title": "Post a listing",
     "lede": "Seven steps. Draft saves on this device as you go. Submissions wait in moderation before they appear in search.",
