@@ -524,7 +524,7 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
                     }
                   >
                     <option value="MONTHLY">{t("monthly")}</option>
-                    <option value="YEARLY">{t("yearly")}</option>
+                    <option value="ANNUAL">{t("yearly")}</option>
                   </select>
                 </div>
                 <div className="space-y-1.5">

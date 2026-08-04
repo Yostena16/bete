@@ -45,7 +45,7 @@ export const postDraftSchema = z.object({
   price: z.number().positive().max(5_000_000_000),
   currency: z.enum(["ETB", "USD"]),
   priceNegotiable: z.boolean().default(false),
-  rentPeriod: z.enum(["MONTHLY", "YEARLY"]).optional(),
+  rentPeriod: z.enum(["MONTHLY", "ANNUAL"]).optional(),
   advanceMonths: z.number().int().min(1).max(12).optional(),
 });
 
