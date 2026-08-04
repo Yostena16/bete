@@ -232,6 +232,13 @@
     "stale_short": "Stale",
     "dayCounter": "Day {day} of {total}"
   },
+  "saved": {
+    "title": "Saved homes",
+    "lede": "Places you marked to come back to. Hearts sync once you are signed in.",
+    "emptyTitle": "Nothing saved yet",
+    "emptyBody": "Tap the heart on a listing card. It will show up here so you can compare without losing the thread.",
+    "emptyAction": "Browse rentals"
+  },
   "confirm": {
     "title": "Confirm availability",
     "availableTitle": "Marked as still available",

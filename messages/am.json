@@ -232,6 +232,13 @@
     "stale_short": "ያረጀ",
     "dayCounter": "ከ{total} ቀን {day}ኛው ቀን"
   },
+  "saved": {
+    "title": "የተቀመጡ ቤቶች",
+    "lede": "ለመመለስ ምልክት ያደረጓቸው ቦታዎች። ልብ ምልክቱ ከገቡ በኋላ ይመሳሰላል።",
+    "emptyTitle": "ገና ምንም አልተቀመጠም",
+    "emptyBody": "በካርዱ ላይ ያለውን ልብ ይንኩ። እዚህ ይታያል፤ ንጽጽር ሳያጡ።",
+    "emptyAction": "ኪራዮችን ይመልከቱ"
+  },
   "confirm": {
     "title": "ክፍትነት አረጋግጥ",
     "availableTitle": "አሁንም ክፍት ነው ተብሏል",
