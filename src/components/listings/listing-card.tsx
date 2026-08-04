@@ -16,6 +16,8 @@ type ListingCardProps = {
   listing: ListingCardData;
   /** Set on the first row so the largest contentful paint is not lazy-loaded. */
   priority?: boolean;
+  saved?: boolean;
+  signedIn?: boolean;
   className?: string;
 };
 
@@ -31,6 +33,8 @@ type ListingCardProps = {
 export function ListingCard({
   listing,
   priority = false,
+  saved = false,
+  signedIn = false,
   className,
 }: ListingCardProps) {
   const locale = useLocale();
@@ -73,7 +77,12 @@ export function ListingCard({
         </span>
 
         {/* Above the card-wide link overlay, or it cannot be clicked. */}
-        <SaveButton listingId={listing.id} className="absolute right-3 top-3 z-10" />
+        <SaveButton
+          listingId={listing.id}
+          initialSaved={saved}
+          signedIn={signedIn}
+          className="absolute right-3 top-3 z-10"
+        />
 
         <LifeRail
           lifeRemaining={freshness.lifeRemaining}

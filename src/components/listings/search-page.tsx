@@ -12,6 +12,8 @@ import { EmptyResults } from "./empty-results";
 import { Pagination } from "./pagination";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { auth } from "@/auth";
+import { getSavedListingIds } from "@/lib/listings/saved";
 import type { ListingType } from "@/generated/prisma/enums";
 
 /**
@@ -29,13 +31,18 @@ export async function SearchPage({
 }) {
   const t = await getTranslations("results");
   const params = parseSearchParams(searchParams);
-  const [areas, result] = await Promise.all([
+  const session = await auth();
+  const [areas, result, savedIds] = await Promise.all([
     getAreas(),
     searchListings(params, listingType),
+    session?.user?.id
+      ? getSavedListingIds(session.user.id)
+      : Promise.resolve(new Set<string>()),
   ]);
 
   const isRent = listingType === "FOR_RENT";
   const from = (result.page - 1) * PAGE_SIZE;
+  const signedIn = Boolean(session?.user);
 
   return (
     <>
@@ -81,7 +88,11 @@ export async function SearchPage({
             <EmptyResults />
           ) : (
             <>
-              <ResultsGrid listings={result.listings} />
+              <ResultsGrid
+                listings={result.listings}
+                savedIds={savedIds}
+                signedIn={signedIn}
+              />
               <p className="text-center text-xs text-ink-soft">
                 {t("pageOf", { page: result.page, total: result.pageCount })}
                 {" \u00b7 "}
