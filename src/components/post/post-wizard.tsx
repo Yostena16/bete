@@ -492,7 +492,9 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
                       })
                     }
                     className="h-11"
+                    placeholder={t("advanceMonthsPlaceholder")}
                   />
+                  <p className="text-xs text-ink-soft">{t("advanceMonthsHint")}</p>
                 </div>
               </div>
             ) : null}
