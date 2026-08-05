@@ -49,3 +49,7 @@ next-env.d.ts
 
 # local tooling scratch
 /.scratch
+
+# user uploads (local fallback when Cloudinary is unset)
+/public/uploads
+!/public/uploads/.gitkeep

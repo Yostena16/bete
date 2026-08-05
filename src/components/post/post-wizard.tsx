@@ -527,7 +527,6 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
               "rentPeriodRequired",
               "invalidPhotoUrl",
               "uploadFailed",
-              "cloudinaryUnset",
               "notImage",
               "tooLarge",
               "submitFailed",
