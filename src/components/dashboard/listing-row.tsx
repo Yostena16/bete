@@ -130,8 +130,17 @@ export function DashboardListingRow({
                 })
               }
             >
-              {t("markTaken")}
+              {listing.listingType === "FOR_RENT"
+                ? t("markRented")
+                : t("markSold")}
             </Button>
+          ) : null}
+          {listing.status === "RENTED" || listing.status === "SOLD" ? (
+            <p className="rounded-lg bg-stone-wash px-3 py-2 text-xs text-ink-soft">
+              {listing.status === "RENTED"
+                ? t("closedRented")
+                : t("closedSold")}
+            </p>
           ) : null}
         </div>
       </div>
