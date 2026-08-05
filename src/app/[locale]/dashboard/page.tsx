@@ -3,9 +3,11 @@ import { getTranslations } from "next-intl/server";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { DashboardListingRow } from "@/components/dashboard/listing-row";
+import { ProfileCard } from "@/components/dashboard/profile-card";
 import { Link } from "@/i18n/navigation";
 import { auth } from "@/auth";
 import { getListerListings } from "@/lib/listings/dashboard";
+import { getUserProfile } from "@/lib/user/profile";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -28,9 +30,11 @@ export default async function DashboardPage({
   const { posted } = await searchParams;
   const session = await auth();
   const t = await getTranslations("dashboard");
-  const listings = session?.user?.id
-    ? await getListerListings(session.user.id)
-    : [];
+  const userId = session?.user?.id;
+
+  const [listings, profile] = userId
+    ? await Promise.all([getListerListings(userId), getUserProfile(userId)])
+    : [[], null];
 
   return (
     <>
@@ -52,6 +56,12 @@ export default async function DashboardPage({
             </Link>
           </div>
 
+          {profile ? (
+            <div className="mb-10">
+              <ProfileCard profile={profile} />
+            </div>
+          ) : null}
+
           {posted ? (
             <p
               className="mb-6 rounded-lg border border-mint bg-mint-wash px-4 py-3 text-sm text-ink"
@@ -61,11 +71,15 @@ export default async function DashboardPage({
             </p>
           ) : null}
 
+          <h2 className="mb-4 font-display text-lg font-semibold text-ink">
+            {t("listingsTitle")}
+          </h2>
+
           {listings.length === 0 ? (
             <div className="rounded-xl border border-dashed border-stone bg-surface px-6 py-12 text-center">
-              <h2 className="font-display text-lg font-semibold text-ink">
+              <h3 className="font-display text-lg font-semibold text-ink">
                 {t("emptyTitle")}
-              </h2>
+              </h3>
               <p className="mx-auto mt-2 max-w-md text-sm text-ink-soft">
                 {t("emptyBody")}
               </p>
