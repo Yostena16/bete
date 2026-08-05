@@ -14,8 +14,8 @@ type PhotoStepProps = {
 };
 
 /**
- * Compress on the client, upload through /api/uploads/image when Cloudinary is
- * configured, otherwise accept pasted URLs so posting still works locally.
+ * Compress on the client, then upload through /api/uploads/image.
+ * Cloudinary is used when configured; otherwise files are stored locally.
  */
 export function PhotoStep({ photos, onChange, onError }: PhotoStepProps) {
   const t = useTranslations("post");
@@ -78,10 +78,6 @@ export function PhotoStep({ photos, onChange, onError }: PhotoStepProps) {
 
         if (!response.ok || !data.url || !data.publicId) {
           onError(data.error ?? "uploadFailed");
-          if (data.error === "cloudinaryUnset") {
-            // Fall through to URL paste; stop the batch.
-            break;
-          }
           continue;
         }
 

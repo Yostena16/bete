@@ -4,6 +4,7 @@ import {
   isCloudinaryConfigured,
   uploadListingImage,
 } from "@/lib/cloudinary";
+import { saveListingImageLocally } from "@/lib/local-upload";
 
 export const runtime = "nodejs";
 
@@ -13,13 +14,6 @@ export async function POST(request: Request) {
   const session = await auth();
   if (!session?.user?.id) {
     return NextResponse.json({ error: "unauthenticated" }, { status: 401 });
-  }
-
-  if (!isCloudinaryConfigured()) {
-    return NextResponse.json(
-      { error: "cloudinaryUnset", message: "Use an image URL instead." },
-      { status: 503 },
-    );
   }
 
   const form = await request.formData();
@@ -35,7 +29,13 @@ export async function POST(request: Request) {
   }
 
   const buffer = Buffer.from(await file.arrayBuffer());
-  const uploaded = await uploadListingImage(buffer);
 
-  return NextResponse.json({ ok: true, ...uploaded });
+  try {
+    const uploaded = isCloudinaryConfigured()
+      ? await uploadListingImage(buffer)
+      : await saveListingImageLocally(buffer);
+    return NextResponse.json({ ok: true, ...uploaded });
+  } catch {
+    return NextResponse.json({ error: "uploadFailed" }, { status: 500 });
+  }
 }

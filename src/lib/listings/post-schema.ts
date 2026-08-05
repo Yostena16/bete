@@ -44,7 +44,15 @@ export const postDraftSchema = z.object({
   photos: z
     .array(
       z.object({
-        url: z.string().url(),
+        url: z
+          .string()
+          .min(1)
+          .refine(
+            (value) =>
+              value.startsWith("/uploads/") ||
+              /^https?:\/\//i.test(value),
+            { message: "invalidPhotoUrl" },
+          ),
         publicId: z.string().min(1),
       }),
     )
