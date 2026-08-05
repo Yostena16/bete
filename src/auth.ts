@@ -27,6 +27,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         const user = await prisma.user.findUnique({ where: { phone } });
         if (!user?.passwordHash) return null;
+        if (user.blockedAt) return null;
 
         const valid = await verifyPassword(
           parsed.data.password,
