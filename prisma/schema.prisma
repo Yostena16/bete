@@ -26,6 +26,10 @@ model User {
   listerType    ListerType?
   phoneVerified Boolean     @default(false)
   avatarUrl     String?
+  // Set when an admin blocks a scammer or abusive account. Login and posting
+  // are refused while this is set; their live listings are taken down.
+  blockedAt     DateTime?
+  blockReason   String?
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
 
@@ -34,6 +38,7 @@ model User {
   savedSearches SavedSearch[]
 
   @@index([role])
+  @@index([blockedAt])
 }
 
 model Listing {

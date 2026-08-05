@@ -19,6 +19,14 @@ export async function submitListingAction(
     return { ok: false, error: "unauthenticated" };
   }
 
+  const account = await prisma.user.findUnique({
+    where: { id: session.user.id },
+    select: { blockedAt: true },
+  });
+  if (account?.blockedAt) {
+    return { ok: false, error: "accountBlocked" };
+  }
+
   const parsed = postDraftSchema.safeParse(raw);
   if (!parsed.success) {
     return { ok: false, error: "invalidDraft" };

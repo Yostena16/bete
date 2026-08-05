@@ -525,6 +525,7 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
             {[
               "invalidDraft",
               "unauthenticated",
+              "accountBlocked",
               "unknownArea",
               "rentPeriodRequired",
               "invalidPhotoUrl",
