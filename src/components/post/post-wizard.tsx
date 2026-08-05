@@ -88,7 +88,7 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
       case "details": {
         const title = draft.titleEn?.trim() ?? "";
         const description = draft.descriptionEn?.trim() ?? "";
-        return title.length >= 8 && description.length >= 40;
+        return title.length > 0 && description.length > 0;
       }
       case "amenities":
         return true;
@@ -256,11 +256,6 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
                 onChange={(event) => patch({ titleEn: event.target.value })}
                 className="h-11"
               />
-              <p className="text-xs text-ink-soft">
-                {t("titleEnHint", {
-                  count: (draft.titleEn?.trim().length ?? 0),
-                })}
-              </p>
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="titleAm">{t("titleAm")}</Label>
@@ -282,11 +277,6 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
                 }
                 className="w-full rounded-lg border border-input bg-transparent px-2.5 py-2 text-sm"
               />
-              <p className="text-xs text-ink-soft">
-                {t("descriptionEnHint", {
-                  count: (draft.descriptionEn?.trim().length ?? 0),
-                })}
-              </p>
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1.5">
@@ -550,7 +540,7 @@ export function PostWizard({ areas, amenities, locale }: PostWizardProps) {
         <div className="mt-8 flex flex-col gap-2">
           {!canContinue() && step === "details" ? (
             <p className="text-sm text-ink-soft" role="status">
-              {t("needLongerDetails")}
+              {t("needDetails")}
             </p>
           ) : null}
           <div className="flex items-center justify-between gap-3">
