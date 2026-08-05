@@ -83,7 +83,7 @@ export async function submitListingAction(
         addressNote: draft.addressNote || null,
         lat: draft.lat,
         lng: draft.lng,
-        status: "PENDING",
+        status: "ACTIVE",
         lastConfirmedAt: now,
         expiresAt,
         images: {
